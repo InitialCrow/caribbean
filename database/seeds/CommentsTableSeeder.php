@@ -11,7 +11,7 @@ class CommentsTableSeeder extends Seeder
 	* @return void
 	*/
 	
-
+	private $nb = 0;
 	public function run(){
 		$directories = Storage::allDirectories();
     	
@@ -21,9 +21,10 @@ class CommentsTableSeeder extends Seeder
 		$files = Storage::allFiles();
 		Storage::delete($files);
 		factory(App\Comment::class,5)->create()->each(function($comment){
+			$this->nb ++;
 			$admins = DB::table('admins')->select('name')->where('id', '=', $comment->admin_id)->get();
 			$comment->image_uri = str_random(10).'_400x200.jpg';
-			$file = file_get_contents('http://lorempixel.com/400/200/');
+			$file = file_get_contents('http://lorempicsum.com/futurama/350/200/'.$this->nb);
 			foreach ($admins as $admin) {
 				
 				Storage::put('public/admins_'.$admin->name.'/comments/'.$comment->image_uri, $file);
