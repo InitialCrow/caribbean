@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSuperUsersTable extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,13 @@ class CreateSuperUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('Super_users', function (Blueprint $table) {
+    	Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',20);
-            $table->string('email')->unique();
-            $table->string('password', 60);
-            $table->rememberToken();
+	        $table->string('name',50);
+	        $table->string('url',50);
+	        $table->rememberToken();
         });
-
-
-
+        
     }
 
     /**
@@ -31,6 +28,6 @@ class CreateSuperUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Super_users');
+        Schema::drop('admins');
     }
 }

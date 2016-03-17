@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+
+class ContentBlogsTableSeeder extends Seeder
+{
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	private $id=0;
+    public function run()
+    {	
+
+    	
+    	// $files = Storage::allFiles();
+    	
+	factory(App\ContentBlog::class,2)->create()->each(function($contentBlog){
+		$this->id ++;
+		$contentBlog->update([
+			'admin_id'=>$this->id
+		]);
+		$admins = DB::table('admins')->select('name')->where('id', '=', $contentBlog->admin_id)->get();
+		$contentBlog->image_uri = str_random(10).'_400x200.jpg';
+		
+		$file = file_get_contents('http://lorempixel.com/400/200');
+		foreach ($admins as $admin) {
+			
+			Storage::put('public/admins_'.$admin->name.'/content_blog_img/'.$contentBlog->image_uri, $file);
+		}
+		
+		
+		$contentBlog->update([
+			'image_uri'=>$contentBlog->image_uri
+		]);
+	});
+    }
+}

@@ -11,11 +11,50 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
-    ];
+$factory->define(App\SuperUser::class, function (Faker\Generator $faker) {
+	return [
+		'name' => $faker->name,
+		'email' => $faker->email,
+		'password' => bcrypt(str_random(10)),
+		'remember_token' => str_random(10),
+	];
+});
+
+$factory->define(App\Admin::class, function(Faker\Generator $faker){
+	return[
+		'name'=>$faker->name,
+		'url'=> str_random(20),
+		'remember_token'=>str_random(10),
+		
+	];
+
+});
+
+$factory->define(App\Guest::class, function( Faker\Generator $faker){
+	return[
+		'name' => $faker->name,
+		'email' => $faker->email,
+		'admin_id'=> $faker->numberBetween($min = 1, $max = 2),
+		'status'=> $faker->numberBetween($min = 0, $max = 1),
+		
+		
+	];
+});
+
+$factory->define(App\Comment::class, function( Faker\Generator $faker){
+	return[
+		'guest_id' => $faker->numberBetween($min = 1, $max = 2),
+		'admin_id' => $faker->numberBetween($min = 1, $max = 2),
+		'text' => $faker->text,
+
+	];
+});
+
+$factory->define(App\ContentBlog::class, function( Faker\Generator $faker){
+	return[
+		'title_html' => $faker->name,
+		'text' => $faker->text,
+		
+
+	];
 });
