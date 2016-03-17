@@ -37,12 +37,12 @@ Route::get('/contact', 'FrontController@contact');
 Route::get('superUser','FrontController@superUser');
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', 'FrontController@contact');
+    // Route::get('/', 'FrontController@contact');
 
 
-    Route::group(['middleware' => ['auth']], function(){
+    // Route::group(['middleware' => ['auth']], function(){
 
-    });
+    // });
 
 });
 
