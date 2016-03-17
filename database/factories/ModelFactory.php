@@ -53,8 +53,8 @@ $factory->define(App\Comment::class, function( Faker\Generator $faker){
 $factory->define(App\ContentBlog::class, function( Faker\Generator $faker){
 	return[
 		'title_html' => $faker->name,
-		'text' => $faker->text,
-		
+		'text' => $faker->text
+
 
 	];
 });

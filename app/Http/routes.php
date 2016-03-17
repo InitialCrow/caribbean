@@ -26,6 +26,24 @@ Route::get('/', function () {
 |
 */
 
+Route::get('/', 'FrontController@index');
+Route::get('/agence', 'FrontController@agence');
+Route::get('/formule', 'FrontController@formule');
+Route::get('/realisation', 'FrontController@realisation');
+Route::get('/temoignage', 'FrontController@temoignage');
+Route::get('/conciergerie', 'FrontController@conciergerie');
+Route::get('/evenement', 'FrontController@evenement');
+Route::get('/contact', 'FrontController@contact');
+Route::get('superUser','FrontController@superUser');
+
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/', 'FrontController@contact');
+
+
+    Route::group(['middleware' => ['auth']], function(){
+
+    });
+
 });
+
+

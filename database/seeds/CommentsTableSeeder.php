@@ -21,6 +21,7 @@ class CommentsTableSeeder extends Seeder
 		$files = Storage::allFiles();
 		Storage::delete($files);
 		factory(App\Comment::class,5)->create()->each(function($comment){
+
 			$this->nb ++;
 			$admins = DB::table('admins')->select('name')->where('id', '=', $comment->admin_id)->get();
 			$comment->image_uri = str_random(10).'_400x200.jpg';
