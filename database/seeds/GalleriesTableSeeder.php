@@ -25,7 +25,7 @@ class GalleriesTableSeeder extends Seeder
 		$admins_id = DB::table('galleries')->get();
 		foreach ($admins_id as $admin) {
 			$admin_name = DB::table('admins')->select('name')->where('id', '=', $admin->admin_id)->get();
-			$file = file_get_contents('http://lorempixel.com/400/200');
+			$file = file_get_contents('http://lorempixel.com/400/200/');
 			foreach ($admin_name as $key => $value) {
 				Storage::put('public/admins_'.$value->name.'/gallery/'.$admin->image_uri, $file);
 			}

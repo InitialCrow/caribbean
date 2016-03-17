@@ -15,7 +15,7 @@ class CreateGalleriesTable extends Migration
         Schema::create('galleries', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('image_uri',50);
-                $table->integer('admin_id');
+                $table->integer('admin_id')->unsigned();
                 $table->foreign('admin_id')->references('id')->on('admins')->onDelete('CASCADE');        
         });
     }

@@ -23,7 +23,7 @@ class CommentsTableSeeder extends Seeder
 		factory(App\Comment::class,5)->create()->each(function($comment){
 			$admins = DB::table('admins')->select('name')->where('id', '=', $comment->admin_id)->get();
 			$comment->image_uri = str_random(10).'_400x200.jpg';
-			$file = file_get_contents('http://lorempixel.com/400/200');
+			$file = file_get_contents('http://lorempixel.com/400/200/');
 			foreach ($admins as $admin) {
 				
 				Storage::put('public/admins_'.$admin->name.'/comments/'.$comment->image_uri, $file);

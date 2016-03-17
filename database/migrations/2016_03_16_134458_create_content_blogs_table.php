@@ -17,7 +17,7 @@ class CreateContentBlogsTable extends Migration
                 $table->string('title_html',50);
                 $table->text('text');
                 $table->string('image_uri',50);
-                $table->integer('admin_id');
+                $table->integer('admin_id')->unsigned();
                 $table->foreign('admin_id')->references('id')->on('admins')->onDelete('CASCADE');
 
                         

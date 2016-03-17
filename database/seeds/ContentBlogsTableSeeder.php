@@ -25,7 +25,7 @@ class ContentBlogsTableSeeder extends Seeder
 		$admins = DB::table('admins')->select('name')->where('id', '=', $contentBlog->admin_id)->get();
 		$contentBlog->image_uri = str_random(10).'_400x200.jpg';
 		
-		$file = file_get_contents('http://lorempixel.com/400/200');
+		$file = file_get_contents('http://lorempixel.com/400/200/');
 		foreach ($admins as $admin) {
 			
 			Storage::put('public/admins_'.$admin->name.'/content_blog_img/'.$contentBlog->image_uri, $file);
