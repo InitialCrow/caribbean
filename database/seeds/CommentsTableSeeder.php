@@ -13,11 +13,11 @@ class CommentsTableSeeder extends Seeder
 	
 	private $nb = 0;
 	public function run(){
-		$directories = Storage::allDirectories();
+
     	
-		foreach ($directories as $directory) {
-			Storage::deleteDirectory($directory);
-		}
+		
+		File::deleteDirectory('public/uploads');
+		
 		$files = Storage::allFiles();
 		Storage::delete($files);
 		factory(App\Comment::class,5)->create()->each(function($comment){
