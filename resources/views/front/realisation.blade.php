@@ -2,7 +2,7 @@
 
 @section('content')
     @parent
-    <section class="realisation">
+    <section class="realisation wrapper">
         <ul>
             <li class="real">
                 <p><img src="" alt=""/></p>

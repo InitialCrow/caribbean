@@ -1,12 +1,12 @@
 <nav class="wrapper">
     <ul>
-        <li><a href="">Accueil</a></li>
-        <li><a href="">L'Agence</a></li>
-        <li><a href="">Nos Prestations</a></li>
-        <li><a href="">Réalisations</a></li>
-        <li><a href="">Livre d'or</a></li>
-        <li><a href="">Conciègerie</a></li>
-        <li><a href="">Mon Evènement</a></li>
-        <li><a href="">Contact</a></li>
+        <li><a href="{{url('/')}}">Accueil</a></li>
+        <li><a href="{{url('/agence')}}">L'Agence</a></li>
+        <li><a href="{{url('/formule')}}">Nos Prestations</a></li>
+        <li><a href="{{url('/realisation')}}">Réalisations</a></li>
+        <li><a href="{{url('/temoignage')}}">Livre d'or</a></li>
+        <li><a href="{{url('/conciergerie')}}">Conciègerie</a></li>
+        <li><a href="{{url('/evenement')}}">Mon Evènement</a></li>
+        <li><a href="{{url('/contact')}}">Contact</a></li>
     </ul>
 </nav>

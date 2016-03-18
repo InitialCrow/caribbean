@@ -33,6 +33,7 @@ Route::get('/realisation', 'FrontController@realisation');
 Route::get('/temoignage', 'FrontController@temoignage');
 Route::get('/conciergerie', 'FrontController@conciergerie');
 Route::get('/evenement', 'FrontController@evenement');
+Route::get('/evenement-admin', 'FrontController@eventAdmin');
 Route::get('/contact', 'FrontController@contact');
 
 

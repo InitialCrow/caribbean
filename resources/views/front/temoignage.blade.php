@@ -2,7 +2,7 @@
 
 @section('content')
     @parent
-    <section class="temoignage">
+    <section class="temoignage wrapper">
         <h1>Temoignages</h1>
         <section class="perso-temoignage">
             <span>Catégorie : </span>

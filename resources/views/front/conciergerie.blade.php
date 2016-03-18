@@ -2,7 +2,7 @@
 
 @section('content')
     @parent
-    <section class="conciergerie">
+    <section class="conciergerie wrapper">
         <h1>Conciergerie</h1>
         <ul>
             <li class="real">
@@ -27,7 +27,7 @@
             </li>
         </ul>
     </section>
-    <section>
+    <section class="wrapper">
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
             Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
             Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
