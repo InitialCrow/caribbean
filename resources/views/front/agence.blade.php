@@ -2,7 +2,7 @@
 
 @section('content')
     @parent
-    <section class="agence">
+    <section class="agence wrapper">
         <h1>TITRE</h1>
         <img src="" alt=""/>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.

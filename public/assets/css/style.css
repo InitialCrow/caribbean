@@ -1,0 +1,17 @@
+body{
+    width: 100%;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header ul{
+    text-align: center;
+}
+
+header ul li{
+    display: inline-block;
+}

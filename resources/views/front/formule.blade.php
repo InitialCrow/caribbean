@@ -2,7 +2,7 @@
 
 @section('content')
     @parent
-    <section class="formule">
+    <section class="formule wrapper">
         <h1>Formules</h1>
         <!-- Formule 1 -->
         <section class="alpinia">

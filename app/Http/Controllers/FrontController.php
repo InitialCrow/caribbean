@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Admin;
+use App\ContentBlog;
+use App\Gallery;
+
 
 class FrontController extends Controller
 {
@@ -38,5 +42,13 @@ class FrontController extends Controller
 
     public function contact(){
         return view('front.contact');
+    }
+
+    public function eventAdmin(){
+        $contentBlogs = ContentBlog::all();
+        $admins = Admin::all(); 
+        $gallery = Gallery::all();
+
+        return view('front.evenement-admin', compact(['contentBlogs','admins','gallery']));
     }
 }
