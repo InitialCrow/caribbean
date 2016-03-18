@@ -34,15 +34,15 @@ Route::get('/temoignage', 'FrontController@temoignage');
 Route::get('/conciergerie', 'FrontController@conciergerie');
 Route::get('/evenement', 'FrontController@evenement');
 Route::get('/contact', 'FrontController@contact');
-Route::get('superUser','FrontController@superUser');
+
 
 Route::group(['middleware' => ['web']], function () {
-    // Route::get('/', 'FrontController@contact');
+    	
+	// Route::get('/superUser', 'SuperUserController@login');
 
-
-    // Route::group(['middleware' => ['auth']], function(){
-
-    // });
+	// Route::group(['middleware' => ['auth']], function(){
+	// 	Route::get('/superUser', 'SuperUserController@dashboard');
+	// });
 
 });
 

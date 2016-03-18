@@ -28,7 +28,7 @@ class CommentsTableSeeder extends Seeder
 			$file = file_get_contents('http://lorempicsum.com/futurama/350/200/'.$this->nb);
 			foreach ($admins as $admin) {
 				
-				Storage::put('public/admins_'.$admin->name.'/comments/'.$comment->image_uri, $file);
+				Storage::disk('uploads')->put('admins_'.$admin->name.'/comments/'.$comment->image_uri, $file);
 			}
 			
 			$comment->update([

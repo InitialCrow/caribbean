@@ -29,7 +29,7 @@ class GalleriesTableSeeder extends Seeder
 			$admin_name = DB::table('admins')->select('name')->where('id', '=', $admin->admin_id)->get();
 			$file = file_get_contents('http://lorempicsum.com/futurama/350/200/'.$this->nb);
 			foreach ($admin_name as $key => $value) {
-				Storage::put('public/admins_'.$value->name.'/gallery/'.$admin->image_uri, $file);
+				Storage::disk('uploads')->put('admins_'.$value->name.'/gallery/'.$admin->image_uri, $file);
 			}
 			
 			

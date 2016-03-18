@@ -28,7 +28,7 @@ class ContentBlogsTableSeeder extends Seeder
 		$file = file_get_contents('http://lorempicsum.com/futurama/350/200/'.$this->id);
 		foreach ($admins as $admin) {
 			
-			Storage::put('public/admins_'.$admin->name.'/content_blog_img/'.$contentBlog->image_uri, $file);
+			Storage::disk('uploads')->put('admins_'.$admin->name.'/content_blog_img/'.$contentBlog->image_uri, $file);
 		}
 		
 		
