@@ -3,7 +3,8 @@
 @section('content')
     @parent
             <section class="event-login">
-                <form action="#" method="post">
+            <h1>Connexion au panneau d'administration</h1>
+                <form action="{{url('superUser/check')}}" method="post">
                     <div>
                         <label for="name">Identifiant:</label>
                         <input type="text" name="name" id="name" value="" tabindex="1" />
@@ -15,7 +16,7 @@
                     <div>
                         <input type="submit" value="Submit" />
                     </div>
-                    {{@crsf_field()}}
+                    {{@csrf_field()}}
                 </form>
             </section>
         </div>
