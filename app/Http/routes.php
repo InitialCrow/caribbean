@@ -39,17 +39,26 @@ Route::get('/contact', 'FrontController@contact');
 
 Route::group(['middleware' => ['web']], function ($id) {
     	
-	Route::get('/superUser', 'SuperUserController@login');
+	
 
-	Route::get('/my_event/{id}', 'FrontController@eventAdmin');
+	Route::any('/my_event', 'AdminController@login');
+	Route::any('/superUser', 'SuperUserController@login');
+	Route::any('/superUser/check', 'SuperUserController@check');
+	Route::any('/my_event/check', 'AdminController@check');
 
 	Route::group(['middleware' => ['auth']], function(){
+
+		
 		Route::controller('superUser', 'SuperUserController');
-		// Route::any('superUser/addAdmin','SuperUserController@addAdmin');
-		// Route::any('superUser/removeAdmin/{id}','SuperUserController@removeAdmin');
-		// Route::any('superUser/dashboard', 'SuperUserController@dashboard');
+		
+	});
+	Route::group(['middleware' => ['admin']], function(){
+		Route::any('/my_event/{id}', 'AdminController@eventAdmin');
+		Route::any('/my_event/{id}/change', 'AdminController@change');
+		Route::any('/my_event/{id}/edit', 'AdminController@edit');
 	});
 
 });
+
 
 

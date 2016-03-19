@@ -7,7 +7,8 @@
         <table>
             <thead>
                 <tr>
-                        <th><label for="name">Identifiant</label></th>
+                        <th><label for="log">Identifiant</label></th>
+                        <th><label for="name">nom des mariées</label></th>
                         <th><label for="token">Lien</label></th>
                         <th>Fichier</th>
                 </tr>
@@ -15,6 +16,8 @@
             <tbody>
             @forelse($admins as $admin)
                 <tr>
+
+                        <td>{{$admin->login}}</td>
                         <td>{{$admin->name}}</td>
                         <td> http://mondomaine/my_event/{{$admin->url}} </td>
                         <td><input type="file"/></td>
@@ -31,8 +34,8 @@
 
                     
                     <tr>
+                        <td><input type="text" name="login" id="log" value="" tabindex="1" /></td>
                         <td><input type="text" name="name" id="name" value="" tabindex="1" /></td>
-                        <td> </td>
                         <td><input type="file"/></td>
                         <td><input type="submit" value="Enregistrer" /></td>
                         

@@ -14,6 +14,7 @@ class CreateContentBlogsTable extends Migration
     {
         Schema::create('content_blogs', function (Blueprint $table) {
                 $table->increments('id');
+                $table->text('presentation_text');
                 $table->string('title_html',50);
                 $table->text('text');
                 $table->string('image_uri',50);

@@ -22,6 +22,7 @@ $factory->define(App\SuperUser::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Admin::class, function(Faker\Generator $faker){
 	return[
+		'login'=>str_random(4),
 		'name'=>$faker->name,
 		'url'=> str_random(20),
 		'remember_token'=>str_random(10),
@@ -53,8 +54,13 @@ $factory->define(App\Comment::class, function( Faker\Generator $faker){
 $factory->define(App\ContentBlog::class, function( Faker\Generator $faker){
 	return[
 		'title_html' => $faker->name,
-		'text' => $faker->text
-
-
+		'presentation_text' => $faker->text,
+		'text' => $faker->text,
+	];
+});
+$factory->define(App\TodoList::class, function( Faker\Generator $faker){
+	return[
+		'todo' => $faker->name,
+		'content_blog_id' => $faker->numberBetween($min = 1, $max = 2),
 	];
 });

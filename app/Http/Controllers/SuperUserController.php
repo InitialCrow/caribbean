@@ -13,26 +13,30 @@ use Auth;
 
 class SuperUserController extends Controller
 {	
+
 	public function login(){
 
-		return view('superUser.login-superUser');
+		return view('superUser.login');
 	}
-	public function post_check(Request $request){
+	public function check(Request $request){
 		
 		if($request->isMethod('post')){
-	    		
-	    		$credential = $request->only('name','password');
+
+			
+				$credential = $request->only('name','password');
 
 	    		
-	    		if(Auth::attempt(array('name' => $credential['name'], 'password' => $credential['password']))){
-	    			
-	    			return redirect()->intended('superUser/dashboard');
+		    		if(Auth::attempt(array('name' => $credential['name'], 'password' => $credential['password']))){
+		    			
+		    			return redirect()->intended('superUser/dashboard');
 
-	    		}
-	    		else{
-	    			echo "nom d'utilisateur et mot de pass invalide";
-	    			return view('superUser.login-superUser');
-	    		}
+		    		}
+		    		else{
+		    			echo "nom d'utilisateur et mot de pass invalide";
+		    			return view('superUser.login');
+		    		}
+			
+	    		
     		}
 
 	}
@@ -44,12 +48,14 @@ class SuperUserController extends Controller
 
 	    	if($request->isMethod('post')){
 	    		
-	    		$credential = $request->only('name','url');
-	    		$admin = new Admin(array(
+	    		$credential = $request->only('login','name');
+	    		
+	    		$admin = new Admin([
+	    		    'login' => $credential['login'],
 			    'name' =>  $credential['name'],
 			    'url' => str_random(20),
-			    'remember_token'=>str_random(10),
-			));
+			    'remember_token'=>str_random(10)
+			]);
 			$admin->save();
 			Storage::disk('uploads')->makeDirectory('admins_'.$admin->name);
 			Storage::disk('uploads')->makeDirectory('admins_'.$admin->name.'/comments');

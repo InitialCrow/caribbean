@@ -38,12 +38,16 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'superUser',
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'superUser',
         ],
     ],
 
@@ -65,9 +69,13 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'superUser' => [
             'driver' => 'eloquent',
             'model' => App\SuperUser::class,
+        ],
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
         ],
 
         // 'users' => [
