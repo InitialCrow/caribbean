@@ -18,8 +18,17 @@ class Admin extends Authenticatable
 
     	
     	public function guests(){
-    		return $this->hasMany('App\Admin');
+    		return $this->hasMany('App\Guest');
     	}
+            public function contentBlog(){
+                        return $this->hasMany('App\ContentBlog');
+            }
+            public function gallery(){
+                        return $this->hasMany('App\Gallery');
+            }
+            public function comments(){
+                        return $this->hasMany('App\Comment');
+            }
     /**
      * The attributes excluded from the model's JSON form.
      *

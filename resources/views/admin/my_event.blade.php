@@ -34,7 +34,9 @@
            @forelse($contentBlogs as $contentBlog)
             <h3>{{$contentBlog->title_html}}</h3>
             <p>{{$contentBlog->text}}</p>
+            @if ($contentBlog->image_uri !== null)
             <img src="{{url('uploads/admins_'.$admins[0]->name.'/content_blog_img', $contentBlog->image_uri)}}">
+            @endif
             @empty
                 <p>There are no users yet!</p>
             @endforelse

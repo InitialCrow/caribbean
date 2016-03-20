@@ -18,6 +18,7 @@ class CreateAdminsTable extends Migration
 	        $table->string('name',50);
 	        $table->string('url',50);
 	        $table->rememberToken();
+                  
         });
         
     }

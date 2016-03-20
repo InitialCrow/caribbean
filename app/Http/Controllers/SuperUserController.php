@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\SuperUser;
 use App\Admin;
+use App\ContentBlog;
+use App\Gallery;
+use App\TodoList;
 use Storage;
 use File;
 use Auth;
@@ -73,6 +76,10 @@ class SuperUserController extends Controller
 		File::deleteDirectory($path);
 			
 			
+		
+		$contentBlog = ContentBlog::where('admin_id', '=', $admin->id)->delete();
+		$gallery= Gallery::where('admin_id', '=', $admin->id)->delete();
+		$todoList = TodoList::where('content_blog_id', '=', $admin->id)->delete();
 		$admin->delete();
 		return back()->with( ['message' => trans('app.success')] );
     	}

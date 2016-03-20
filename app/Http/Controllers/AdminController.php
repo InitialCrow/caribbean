@@ -48,7 +48,7 @@ class AdminController extends Controller
 		$todoList = TodoList::where('content_blog_id', '=' , $admins[0]->id)->get();
 
 		
-		if(!empty($contentBlogs[0]) && !empty($gallery[0])){
+		if(!empty($contentBlogs[0]) ){
 			$presentationConvert[] = $contentBlogs->toArray();
 			$presentation =  end($presentationConvert[0]);
 
@@ -67,34 +67,60 @@ class AdminController extends Controller
 			
 			$credential = $request->all();
 			$admin = Admin::where('url', '=' , $adminToken)->get();
-			$imgContentBlog = $credential['actu_image'];
-			$imgGallery = $credential['gallery_image'];
-
-			$imgContentBlog->move('uploads/admins_'.$admin[0]->name.'/content_blog_img/',$imgContentBlog->getClientOriginalName());
-			$imgGallery->move('uploads/admins_'.$admin[0]->name.'/gallery/',$imgGallery->getClientOriginalName());
-
-			$contentBlog = new ContentBlog([
-				'presentation_text' => $credential['presentation'],
-				'title_html' => $credential['titre_actu'],
-				'text' => $credential['text_actu'],
-				'image_uri' => $imgContentBlog->getClientOriginalName(),
-				'admin_id'=> $admin[0]->id
-			]);
-			$gallery = new Gallery([
-				'image_uri'=> $imgGallery->getClientOriginalName(),
-				'admin_id'=> $admin[0]->id
-			]);
-		
-			foreach ($credential['todolist'] as $todo) {
-				$todoList = new TodoList([
-					'content_blog_id'=> $admin[0]->id,
-					'todo'=> $todo
+					
+			if(!empty($credential['actu_image'])){
+				$imgContentBlog = $credential['actu_image'];
+				$imgContentBlog->move('uploads/admins_'.$admin[0]->name.'/content_blog_img/',$imgContentBlog->getClientOriginalName());
+				$imgContentBlog = $imgContentBlog->getClientOriginalName();
+			}
+			else{
+				$imgContentBlog = null;
+			}
+			if(!empty($credential['titre_actu']) && !empty($credential['text_actu']) || !empty($credential['presentation'])){
+				if(empty($credential['titre_actu']) || empty($credential['text_actu'])){
+					$credential['titre_actu'] = null;
+					$credential['text_actu'] = null;
+				}
+				$contentBlog = new ContentBlog([
+					'presentation_text' => $credential['presentation'],
+					'title_html' => $credential['titre_actu'],
+					'text' => $credential['text_actu'],
+					'image_uri' => $imgContentBlog,
+					'admin_id'=> $admin[0]->id
 				]);
-				$todoList->save();
+				$contentBlog->save();
+			}
+
+			if(!empty($credential['gallery_image'])){
+				$imgGallery = $credential['gallery_image'];
+				$imgGallery->move('uploads/admins_'.$admin[0]->name.'/gallery/',$imgGallery->getClientOriginalName());
+				$gallery = new Gallery([
+					'image_uri'=> $imgGallery->getClientOriginalName(),
+					'admin_id'=> $admin[0]->id
+				]);
+				$gallery->save();
 			}
 			
-			$contentBlog->save();
-			$gallery->save();
+			
+			
+		
+			foreach ($credential['todolist'] as $todo) {
+				if(!empty($todo)){
+					$todoList = new TodoList([
+						'content_blog_id'=> $admin[0]->id,
+						'todo'=> $todo
+					]);
+					$todoList->save();
+				}	
+			}
+			
+			
+			
+			
+			return redirect()->intended('my_event/'.$adminToken);
+			
+			
+			
 			
     		}
 	}
