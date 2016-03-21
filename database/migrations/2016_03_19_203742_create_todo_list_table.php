@@ -16,7 +16,7 @@ class CreateTodoListTable extends Migration
                 $table->increments('id');
                 $table->integer('content_blog_id')->unsigned();
                 $table->string('todo',50);    
-                $table->foreign('content_blog_id')->references('id')->on('content_blogs')->onDelete('CASCADE');                   
+                $table->foreign('content_blog_id')->references('id')->on('content_blogs')->onDelete('cascade');                   
         });
     }
 

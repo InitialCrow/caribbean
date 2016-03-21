@@ -18,8 +18,8 @@ class CreateCommentsTable extends Migration
                 $table->text('text');
                 $table->string('image_uri',50);
                 $table->integer('admin_id')->unsigned();
-                $table->foreign('admin_id')->references('id')->on('admins')->onDelete('CASCADE');
-                $table->foreign('guest_id')->references('id')->on('guests')->onDelete('CASCADE');
+                $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+                $table->foreign('guest_id')->references('id')->on('guests')->onDelete('cascade');
 
                         
         });

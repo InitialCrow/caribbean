@@ -75,11 +75,6 @@ class SuperUserController extends Controller
 		// dd($path);
 		File::deleteDirectory($path);
 			
-			
-		
-		$contentBlog = ContentBlog::where('admin_id', '=', $admin->id)->delete();
-		$gallery= Gallery::where('admin_id', '=', $admin->id)->delete();
-		$todoList = TodoList::where('content_blog_id', '=', $admin->id)->delete();
 		$admin->delete();
 		return back()->with( ['message' => trans('app.success')] );
     	}
