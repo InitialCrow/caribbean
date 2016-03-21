@@ -32,23 +32,19 @@ Route::get('/formule', 'FrontController@formule');
 Route::get('/realisation', 'FrontController@realisation');
 Route::get('/temoignage', 'FrontController@temoignage');
 Route::get('/conciergerie', 'FrontController@conciergerie');
-Route::get('/evenement', 'FrontController@evenement');
 
 Route::get('/contact', 'FrontController@contact');
 
 
 Route::group(['middleware' => ['web']], function ($id) {
-    	
-	
 
-	Route::any('/my_event', 'AdminController@login');
+    Route::get('/evenement', 'FrontController@evenement');
 	Route::any('/superUser', 'SuperUserController@login');
 	Route::any('/superUser/check', 'SuperUserController@check');
 	Route::any('/my_event/check', 'AdminController@check');
 
 	Route::group(['middleware' => ['auth']], function(){
 
-		
 		Route::controller('superUser', 'SuperUserController');
 		
 	});

@@ -4,7 +4,9 @@
     @parent
     <div class="wrapper">
         <h2> mariage de {{$admins[0]->name}}</h2>
-        <section class="delay">compte à rebours</section>
+        <section class="delay">
+            <div id="getting-started"></div>
+        </section>
         <section class="presentation">
             <h2>Présentation</h2>
             <p>{{$presentation['presentation_text']}}</p>
@@ -13,7 +15,8 @@
             <h2>Gallery</h2>
             <ul>
                 @forelse($gallery as $picture)
-                <li><img src="{{url('uploads/admins_'.$admins[0]->name.'/gallery',$picture->image_uri)}}" alt=""></li>
+                <li>
+                    <p><a href="{{url('uploads/admins_'.$admins[0]->name.'/gallery',$picture->image_uri)}}" data-lightbox="image"><img src="{{url('uploads/admins_'.$admins[0]->name.'/gallery',$picture->image_uri)}}" alt=""></a></p></li>
                 @empty
                     <p>There are no users yet!</p>
                 @endforelse
@@ -22,8 +25,9 @@
         <section class="planning">
             <h2>Déroulement</h2>
             <ul>
-            @forelse($todoList as $todo)
-                <li>{{$todo->todo}}</li>
+            @forelse($todoListConvert as $todo)
+
+                <li>{{$todo['todo']}}</li>
             @empty
                 <p>deroulement non planifé!</p>
             @endforelse
@@ -35,7 +39,9 @@
             <h3>{{$contentBlog->title_html}}</h3>
             <p>{{$contentBlog->text}}</p>
             @if ($contentBlog->image_uri !== null)
-            <img src="{{url('uploads/admins_'.$admins[0]->name.'/content_blog_img', $contentBlog->image_uri)}}">
+                <p>
+                    <img src="{{url('uploads/admins_'.$admins[0]->name.'/content_blog_img', $contentBlog->image_uri)}}">
+                </p>
             @endif
             @empty
                 <p>There are no users yet!</p>
@@ -56,6 +62,7 @@
             </div>
         </section>
     </div>
+
 @stop
 @section('content')
 @stop

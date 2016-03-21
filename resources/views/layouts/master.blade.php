@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/slider/swiper.min.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/gallery/lightbox.css')}}">
 </head>
 
 <body>
@@ -27,6 +29,11 @@
     </ul>
 </footer>
 
-@yield('scripts')
+<script src="{{url('js/lib/jquery.min.js')}}"></script>
+<script src="{{url('js/lib/slider/swiper.min.js')}}"></script>
+<script src="{{url('js/lib/gallery/lightbox.js')}}"></script>
+<script src="{{url('js/lib/jquery.countdown.js')}}"></script>
+<script src="{{url('js/main.js')}}"></script>
+
 </body>
 </html>

@@ -51,6 +51,9 @@ header h1.nav-logo{
     /* ----Organisons votre mariage---- */
     /* ----zone de réalisations---- */
 
+.swiper-container{
+    min-height: 300px;
+}
 
 /* ======AGENCE======= */
 
@@ -71,11 +74,30 @@ header h1.nav-logo{
 /* ======CONCIERGERIE======= */
 
 
-/* ======EVENT======= */
+/* ======EVENT_SUPERADMIN======= */
 
 table{
     background-color: #EEEEEE;
     padding: 10px;
+}
+
+/* ======EVENT_ADMIN======= */
+
+.gallery ul{
+    width: 100%;
+}
+
+.gallery ul li{
+    display: inline-block;
+    width: 30%;
+}
+
+.gallery ul li p{
+    width: 100%;
+}
+
+.gallery ul li img{
+    width: 100%;
 }
 
 /* ======EVENT======= */

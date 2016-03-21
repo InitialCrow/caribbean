@@ -9,9 +9,7 @@
         <h2> mariage de {{$admins[0]->name}}</h2>
         <section class="delay">compte à rebours</section>
         <form action="{{url('my_event/'.$adminToken,'change')}}" method="post" enctype="multipart/form-data" >
-            
-        
-        
+
                             <section class="presentation">
                                 <h2>Présentation</h2>
                                 <textarea name="presentation" id="presentation" cols="30" rows="10" placeholder="entrer une bref prhase d'acceuil"></textarea>
@@ -25,10 +23,9 @@
                             <section class="planning">
                                 <h2>Déroulement</h2>
                                 <ul>
-                                 
-                                    <input type="text" name="todolist[1]list" placeholder="liste des chose à faire">
-                                    <input type="text" name="todolist[2]list" placeholder="liste des chose à faire">
+                                    <input class ="todo" type="text" name="todolist[1]list" placeholder="liste des chose à faire">
                                 </ul>
+                                <input class="addButton" type="button" value="+">
                             </section>
                             <section class="actu">
                                 <h2>Actualités : </h2>
