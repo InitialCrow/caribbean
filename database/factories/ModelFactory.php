@@ -53,6 +53,7 @@ $factory->define(App\Comment::class, function( Faker\Generator $faker){
 
 $factory->define(App\ContentBlog::class, function( Faker\Generator $faker){
 	return[
+		'admin_id' => $faker->numberBetween($min = 1, $max = 2),
 		'title_html' => $faker->name,
 		'presentation_text' => $faker->text,
 		'text' => $faker->text,

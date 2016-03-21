@@ -19,9 +19,7 @@ class ContentBlogsTableSeeder extends Seeder
     	
 	factory(App\ContentBlog::class,2)->create()->each(function($contentBlog){
 		$this->id ++;
-		$contentBlog->update([
-			'admin_id'=>$this->id
-		]);
+	
 		$admins = DB::table('admins')->select('name')->where('id', '=', $contentBlog->admin_id)->get();
 		$contentBlog->image_uri = str_random(10).'_400x200.jpg';
 		

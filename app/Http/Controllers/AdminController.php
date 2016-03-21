@@ -45,7 +45,7 @@ class AdminController extends Controller
 		$contentBlogs = ContentBlog::where('admin_id', '=' , $admins[0]->id)->get();
 		$gallery = Gallery::where('admin_id', '=' , $admins[0]->id)->get();
 		$todoList = TodoList::where('content_blog_id', '=' , $admins[0]->id)->get();
-		$todoListConvert = array_reverse($todoList->toArray());
+		$todoListConvert = $todoList->toArray();
 
 		
 		if(!empty($contentBlogs[0]) ){
@@ -55,7 +55,7 @@ class AdminController extends Controller
 			return view('admin.my_event', compact(['contentBlogs','admins','gallery','todoListConvert','presentation']));	
 		}
 		else{
-			return view('admin.dashboard', compact(['admins', 'adminToken']));
+			return view('admin.dashboard', compact(['admins','gallery','todoListConvert','contentBlogs', 'adminToken']));
 		}
 		
 	}
@@ -66,6 +66,7 @@ class AdminController extends Controller
 			$adminToken = $parts[2];
 			
 			$credential = $request->all();
+			
 			$admin = Admin::where('url', '=' , $adminToken)->get();
 					
 			if(!empty($credential['actu_image'])){
@@ -75,20 +76,6 @@ class AdminController extends Controller
 			}
 			else{
 				$imgContentBlog = null;
-			}
-			if(!empty($credential['titre_actu']) && !empty($credential['text_actu']) || !empty($credential['presentation'])){
-				if(empty($credential['titre_actu']) || empty($credential['text_actu'])){
-					$credential['titre_actu'] = null;
-					$credential['text_actu'] = null;
-				}
-				$contentBlog = new ContentBlog([
-					'presentation_text' => $credential['presentation'],
-					'title_html' => $credential['titre_actu'],
-					'text' => $credential['text_actu'],
-					'image_uri' => $imgContentBlog,
-					'admin_id'=> $admin[0]->id
-				]);
-				$contentBlog->save();
 			}
 
 			if(!empty($credential['gallery_image'])){
@@ -101,17 +88,42 @@ class AdminController extends Controller
 				$gallery->save();
 			}
 			
-			
-			
-		
 			foreach ($credential['todolist'] as $todo) {
 				if(!empty($todo)){
+
 					$todoList = new TodoList([
 						'content_blog_id'=> $admin[0]->id,
 						'todo'=> $todo
 					]);
 					$todoList->save();
+
 				}	
+			}
+			if(!empty($credential['presentation'])){
+				if(empty($credential['titre_actu']) || empty($credential['text_actu'])){
+					$contentBlog = ContentBlog::where('admin_id', '=' , $admin[0]->id)->first();
+					if(isset($contentBlog)){
+
+						$contentBlog->update(['presentation_text' => $credential['presentation']]); 
+					}
+					else{
+						$contentBlog = new ContentBlog(['presentation_text' => $credential['presentation']]);
+
+					}
+					$contentBlog->save();
+					
+				}
+				else{
+					$contentBlog = new ContentBlog([
+						'presentation_text' => $credential['presentation'],
+						'title_html' => $credential['titre_actu'],
+						'text' => $credential['text_actu'],
+						'image_uri' => $imgContentBlog,
+						'admin_id'=> $admin[0]->id
+					]);
+				}
+				
+				$contentBlog->save();
 			}
 			
 			
@@ -130,6 +142,30 @@ class AdminController extends Controller
 		$adminToken = $parts[2];
 		$admins = Admin::where('url', '=' , $adminToken)->get();
 
-		return view('admin.dashboard',compact(['admins', 'adminToken']));
+		$contentBlogs = ContentBlog::where('admin_id', '=' , $admins[0]->id)->get();
+		$gallery = Gallery::where('admin_id', '=' , $admins[0]->id)->get();
+		$todoList = TodoList::where('content_blog_id', '=' , $admins[0]->id)->get();
+		$todoListConvert = $todoList->toArray();
+		$presentationConvert[] = $contentBlogs->toArray();
+		$presentation =  end($presentationConvert[0]);
+		
+		return view('admin.dashboard',compact(['admins', 'adminToken','presentation','gallery','todoListConvert','contentBlogs']));
+	}
+	public function delete(Request $request , $token, $type, $id){
+		$admin = Admin::where('url', '=' , $token)->get();
+		if ( $type === "todoList"){
+			$todoList = TodoList::Find($id);
+			$todoList->delete();
+			
+		}
+		if ( $type === "gallery"){
+			$gallery = Gallery::Find($id);
+			$gallery->delete();
+		}
+		if ( $type === "contentBlog"){
+			$contentBlog = contentBlog::Find($id);
+			$contentBlog->delete();
+		}
+		 return redirect()->intended('my_event/'.$admin[0]->url.'/edit');
 	}
 }

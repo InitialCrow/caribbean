@@ -17,7 +17,7 @@ class CreateGalleriesTable extends Migration
                 $table->increments('id');
                 $table->string('image_uri',50)->nullable();
                 $table->integer('admin_id')->unsigned();
-                $table->foreign('admin_id')->references('id')->on('admins')->onDelete('CASCADE');        
+                $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');        
         });
     }
 

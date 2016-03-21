@@ -56,6 +56,7 @@ Route::group(['middleware' => ['web']], function ($id) {
 		Route::any('/my_event/{id}', 'AdminController@eventAdmin');
 		Route::any('/my_event/{id}/change', 'AdminController@change');
 		Route::any('/my_event/{id}/edit', 'AdminController@edit');
+		Route::any('/my_event/{token}/edit/delete/{type}/{id}', 'AdminController@delete');
 	});
 
 });
