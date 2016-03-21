@@ -22,8 +22,9 @@
         <section class="planning">
             <h2>Déroulement</h2>
             <ul>
-            @forelse($todoList as $todo)
-                <li>{{$todo->todo}}</li>
+            @forelse($todoListConvert as $todo)
+
+                <li>{{$todo['todo']}}</li>
             @empty
                 <p>deroulement non planifé!</p>
             @endforelse

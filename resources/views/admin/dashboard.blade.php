@@ -25,10 +25,9 @@
                             <section class="planning">
                                 <h2>Déroulement</h2>
                                 <ul>
-                                 
-                                    <input type="text" name="todolist[1]list" placeholder="liste des chose à faire">
-                                    <input type="text" name="todolist[2]list" placeholder="liste des chose à faire">
+                                    <input class ="todo" type="text" name="todolist[1]list" placeholder="liste des chose à faire">
                                 </ul>
+                                <input class="addButton" type="button" value="+">
                             </section>
                             <section class="actu">
                                 <h2>Actualités : </h2>

@@ -21,7 +21,6 @@ class AdminController extends Controller
 			$credential = $request->only('name');
 
 	    		$admin = Admin::where('login', '=' , $credential['name'])->get();
-	    		// dd($admin[0]);
 	    		if(!empty($admin[0])){
 	    			Auth::login($admin[0]);
 	    			echo "ok";
@@ -46,13 +45,14 @@ class AdminController extends Controller
 		$contentBlogs = ContentBlog::where('admin_id', '=' , $admins[0]->id)->get();
 		$gallery = Gallery::where('admin_id', '=' , $admins[0]->id)->get();
 		$todoList = TodoList::where('content_blog_id', '=' , $admins[0]->id)->get();
+		$todoListConvert = array_reverse($todoList->toArray());
 
 		
 		if(!empty($contentBlogs[0]) ){
 			$presentationConvert[] = $contentBlogs->toArray();
 			$presentation =  end($presentationConvert[0]);
 
-			return view('admin.my_event', compact(['contentBlogs','admins','gallery','todoList','presentation']));	
+			return view('admin.my_event', compact(['contentBlogs','admins','gallery','todoListConvert','presentation']));	
 		}
 		else{
 			return view('admin.dashboard', compact(['admins', 'adminToken']));

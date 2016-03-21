@@ -27,6 +27,7 @@
     </ul>
 </footer>
 
-@yield('scripts')
+<script src="{{url('js/lib/jquery.min.js')}}"></script>
+<script src="{{url('js/main.js')}}"></script>
 </body>
 </html>
