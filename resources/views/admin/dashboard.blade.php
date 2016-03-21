@@ -9,34 +9,6 @@
         <h2> mariage de {{$admins[0]->name}}</h2>
         <section class="delay">compte à rebours</section>
         <form action="{{url('my_event/'.$adminToken,'change')}}" method="post" enctype="multipart/form-data" >
-<<<<<<< HEAD
-
-                            <section class="presentation">
-                                <h2>Présentation</h2>
-                                <textarea name="presentation" id="presentation" cols="30" rows="10" placeholder="entrer une bref prhase d'acceuil"></textarea>
-                            </section>
-                            <section class="gallery">
-                                <h2>Gallery</h2>
-                                <ul>
-                                <input type="file" name="gallery_image" size="40">
-                                </ul>
-                            </section>
-                            <section class="planning">
-                                <h2>Déroulement</h2>
-                                <ul>
-                                    <input class ="todo" type="text" name="todolist[1]list" placeholder="liste des chose à faire">
-                                </ul>
-                                <input class="addButton" type="button" value="+">
-                            </section>
-                            <section class="actu">
-                                <h2>Actualités : </h2>
-                                <input type="text" name="titre_actu" placeholder="titre de votre actualité">
-                                <textarea name="text_actu" id="text_actu" cols="30" rows="10" placeholder="text de votre actualité"></textarea>
-                                <input type="file" name="actu_image" size="40">
-                                <input type="submit" value="envoyer"/>
-                            </section>
-                            {{@csrf_field()}}
-=======
         
             <section class="presentation">
                 <h2>Présentation</h2>
@@ -95,7 +67,6 @@
                 <input type="submit" value="envoyer"/>
             </section>
             {{@csrf_field()}}
->>>>>>> 0439867a6ac7a110d1807cc5659b6dcf05a82b55
         </form>
         <section class="comment">
             <h2>Commentaires</h2>

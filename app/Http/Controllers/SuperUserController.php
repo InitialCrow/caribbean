@@ -43,7 +43,7 @@ class SuperUserController extends Controller
     		}
 
 	}
-	public function getDashboard(){
+	public function get_dashboard(){
 		$admins = Admin::all();
 		return view("superUser.dashboard",compact('admins'));
 	}

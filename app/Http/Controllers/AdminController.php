@@ -44,7 +44,7 @@ class AdminController extends Controller
 
 		$contentBlogs = ContentBlog::where('admin_id', '=' , $admins[0]->id)->get();
 		$gallery = Gallery::where('admin_id', '=' , $admins[0]->id)->get();
-		$todoList = TodoList::where('content_blog_id', '=' , $admins[0]->id)->get();
+		$todoList = TodoList::where('admin_id', '=' , $admins[0]->id)->get();
 		$todoListConvert = $todoList->toArray();
 
 		
@@ -90,9 +90,9 @@ class AdminController extends Controller
 			
 			foreach ($credential['todolist'] as $todo) {
 				if(!empty($todo)){
-
+					
 					$todoList = new TodoList([
-						'content_blog_id'=> $admin[0]->id,
+						'admin_id'=> $admin[0]->id,
 						'todo'=> $todo
 					]);
 					$todoList->save();
@@ -107,13 +107,19 @@ class AdminController extends Controller
 						$contentBlog->update(['presentation_text' => $credential['presentation']]); 
 					}
 					else{
-						$contentBlog = new ContentBlog(['presentation_text' => $credential['presentation']]);
+
+						$contentBlog = new ContentBlog([
+							'presentation_text' => $credential['presentation'],
+							'admin_id'=>$admin[0]->id
+						]);
+
 
 					}
-					$contentBlog->save();
+					
 					
 				}
 				else{
+
 					$contentBlog = new ContentBlog([
 						'presentation_text' => $credential['presentation'],
 						'title_html' => $credential['titre_actu'],
@@ -144,7 +150,7 @@ class AdminController extends Controller
 
 		$contentBlogs = ContentBlog::where('admin_id', '=' , $admins[0]->id)->get();
 		$gallery = Gallery::where('admin_id', '=' , $admins[0]->id)->get();
-		$todoList = TodoList::where('content_blog_id', '=' , $admins[0]->id)->get();
+		$todoList = TodoList::where('admin_id', '=' , $admins[0]->id)->get();
 		$todoListConvert = $todoList->toArray();
 		$presentationConvert[] = $contentBlogs->toArray();
 		$presentation =  end($presentationConvert[0]);
@@ -166,6 +172,7 @@ class AdminController extends Controller
 			$contentBlog = contentBlog::Find($id);
 			$contentBlog->delete();
 		}
+		
 		 return redirect()->intended('my_event/'.$admin[0]->url.'/edit');
 	}
 }

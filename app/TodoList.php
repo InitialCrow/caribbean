@@ -13,11 +13,11 @@ class TodoList extends Model
 		* @var array
 		*/
 	protected $fillable = [
-		'content_blog_id','todo'
+		'admin_id','todo'
 	];
 
 	public function content_blog_id(){
-		return $this->belongsTo('App\ContentBlog');
+		return $this->belongsTo('App\Admin');
 	}
 	
 }

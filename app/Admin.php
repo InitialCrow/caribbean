@@ -29,6 +29,9 @@ class Admin extends Authenticatable
             public function comments(){
                         return $this->hasMany('App\Comment');
             }
+            public function todoList(){
+                        return $this->hasMany('App\TodoList');
+            }
     /**
      * The attributes excluded from the model's JSON form.
      *

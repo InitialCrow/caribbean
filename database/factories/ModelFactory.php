@@ -62,6 +62,6 @@ $factory->define(App\ContentBlog::class, function( Faker\Generator $faker){
 $factory->define(App\TodoList::class, function( Faker\Generator $faker){
 	return[
 		'todo' => $faker->name,
-		'content_blog_id' => $faker->numberBetween($min = 1, $max = 2),
+		'admin_id' => $faker->numberBetween($min = 1, $max = 2),
 	];
 });

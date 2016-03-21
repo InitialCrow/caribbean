@@ -29,8 +29,5 @@ class ContentBlog extends Model
 	public function image(){
 		return $this->hasMany('App\ContentBlog');
 	}
-	public function todoList(){
-		return $this->hasMany('App\TodoList');
-	}
 
 }
