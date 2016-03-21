@@ -4,20 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TodoList extends Model
+class Presentation extends Model
 {
-   	public $timestamps = false;
+    	public $timestamps = false;
 		/**
 		* The attributes that are mass assignable.
 		*
 		* @var array
 		*/
 	protected $fillable = [
-		'admin_id','todo'
+		'admin_id','text'
 	];
 
 	public function admin_id(){
-		return $this->belongsTo('App\Admin');
+		return $this->belongTo('App\Admin');
 	}
 	
 }

@@ -55,13 +55,18 @@ $factory->define(App\ContentBlog::class, function( Faker\Generator $faker){
 	return[
 		'admin_id' => $faker->numberBetween($min = 1, $max = 2),
 		'title_html' => $faker->name,
-		'presentation_text' => $faker->text,
 		'text' => $faker->text,
 	];
 });
 $factory->define(App\TodoList::class, function( Faker\Generator $faker){
 	return[
 		'todo' => $faker->name,
+		'admin_id' => $faker->numberBetween($min = 1, $max = 2),
+	];
+});
+$factory->define(App\Presentation::class, function( Faker\Generator $faker){
+	return[
+		'text' => $faker->text,
 		'admin_id' => $faker->numberBetween($min = 1, $max = 2),
 	];
 });

@@ -13,7 +13,7 @@
             <section class="presentation">
                 <h2>Présentation</h2>
                 @if(!empty($presentation))
-                <textarea name="presentation" id="presentation" cols="30" rows="10">{{$presentation['presentation_text']}}</textarea>
+                <textarea name="presentation" id="presentation" cols="30" rows="10">{{$presentation[0]->text}}</textarea>
 
                 
                 @else

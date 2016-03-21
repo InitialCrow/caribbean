@@ -9,7 +9,7 @@
         </section>
         <section class="presentation">
             <h2>Présentation</h2>
-            <p>{{$presentation['presentation_text']}}</p>
+            <p>{{$presentation[0]->text}}</p>
         </section>
         <section class="gallery">
             <h2>Gallery</h2>

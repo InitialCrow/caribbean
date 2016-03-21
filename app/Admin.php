@@ -32,6 +32,9 @@ class Admin extends Authenticatable
             public function todoList(){
                         return $this->hasMany('App\TodoList');
             }
+            public function presentation(){
+                        return $this->hasOne('App\Presentation');
+            }
     /**
      * The attributes excluded from the model's JSON form.
      *
