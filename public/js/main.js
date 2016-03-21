@@ -1,19 +1,8 @@
 $(document).ready(function(){
 	generateTodo();
+    countDown("2016/04/15");
+    swipe();
 
-    var mySwiper = new Swiper ('.swiper-container', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true
-    });
-
-
-    $("#getting-started")
-        .countdown("2016/04/15", function(event) {
-            $(this).text(
-                event.strftime('%D days %H:%M:%S')
-            );
-        });
 });
 
 function generateTodo(){
@@ -29,5 +18,21 @@ function generateTodo(){
 											});
 		$newTodo.appendTo($listTodo);
 	})
-	
+}
+
+function countDown(timer){
+    var $started = $('#getting-started');
+
+    $started.countdown(timer, function(event) {
+        $(this).text(
+            event.strftime('%D days %H heures :%M minutes :%S secondes')
+        );
+    });
+}
+
+function swipe(){
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal',
+        loop: true
+    });
 }
