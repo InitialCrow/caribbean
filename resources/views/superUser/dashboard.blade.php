@@ -4,6 +4,7 @@
     @parent
     <section class="">
         <div class="wrapper">
+            <h1 class="center">Panneau Clients</h1>
         <table>
             <thead>
                 <tr>

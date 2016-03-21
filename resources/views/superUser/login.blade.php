@@ -2,9 +2,9 @@
 
 @section('content')
     @parent
-            <section class="event-login">
-            <h1>Connexion au panneau d'administration</h1>
-                <form action="{{url('superUser/check')}}" method="post">
+            <section class="event-login wrapper">
+            <h1 class="center">Connexion au panneau d'administration</h1>
+                <form action="{{url('superUser/check')}}" method="post" class="center">
                     <div>
                         <label for="name">Identifiant:</label>
                         <input type="text" name="name" id="name" value="" tabindex="1" />

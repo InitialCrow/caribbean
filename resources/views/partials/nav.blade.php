@@ -1,4 +1,4 @@
-<nav class="wrapper">
+<nav class="wrapper nav-header">
     <ul>
         <li><a href="{{url('/')}}">Accueil</a></li>
         <li><a href="{{url('/agence')}}">L'Agence</a></li>

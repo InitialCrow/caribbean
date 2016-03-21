@@ -9,7 +9,7 @@
 <body>
 <header id="header">
     <div class="wrapper">
-        <h1>Logo</h1>
+        <h1 class="nav-logo">Logo</h1>
         @include('partials.nav')
     </div>
 </header>
