@@ -18,6 +18,7 @@ class CreateGuestsTable extends Migration
                 $table->string('name',20);
                 $table->string('email')->unique();
                 $table->boolean('status');
+                $table->string('token',50);
                 $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');    
         });
     }

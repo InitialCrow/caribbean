@@ -53,7 +53,13 @@ Route::group(['middleware' => ['web']], function ($id) {
 		Route::any('/my_event/{id}/change', 'AdminController@change');
 		Route::any('/my_event/{id}/edit', 'AdminController@edit');
 		Route::any('/my_event/{token}/edit/delete/{type}/{id}', 'AdminController@delete');
+		Route::any('/my_event/{token}/send','AdminController@send');
+		Route::any('/my_event/{id}/comment','AdminController@comment');
+		
 	});
+	Route::any('/my_event/{id}/guest/{token}','GuestController@login');
+	Route::any('/my_event/{id}/guest/{token}/subcribe','GuestController@subcribe');
+	Route::any('/my_event/{id}/guest/{token}/comment','GuestController@comment');
 
 });
 

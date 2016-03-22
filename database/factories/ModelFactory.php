@@ -36,6 +36,7 @@ $factory->define(App\Guest::class, function( Faker\Generator $faker){
 		'name' => $faker->name,
 		'email' => $faker->email,
 		'admin_id'=> $faker->numberBetween($min = 1, $max = 2),
+		'token'=>str_random(50),
 		'status'=> $faker->numberBetween($min = 0, $max = 1),
 		
 		
@@ -44,9 +45,9 @@ $factory->define(App\Guest::class, function( Faker\Generator $faker){
 
 $factory->define(App\Comment::class, function( Faker\Generator $faker){
 	return[
-		'guest_id' => $faker->numberBetween($min = 1, $max = 2),
 		'admin_id' => $faker->numberBetween($min = 1, $max = 2),
 		'text' => $faker->text,
+		'name'=> $faker->name
 
 	];
 });

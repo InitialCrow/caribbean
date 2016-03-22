@@ -3,6 +3,7 @@
 @section('content')
     @parent
     <div class="wrapper">
+        <p>bienvenue {{$guest->name}}</p>
         <h2> mariage de {{$admin->name}}</h2>
         <section class="delay">
             <div id="getting-started"></div>
@@ -67,8 +68,7 @@
                         @endforelse
                 
             </ul>
-            
-            <form action="{{url('my_event/'.$admin->url.'/comment')}}" method="post" enctype="multipart/form-data" >
+             <form action="{{url('my_event/'.$admin->url.'/guest/'.$guest->token.'/comment')}}" method="post" enctype="multipart/form-data" >
             <div>
                 <textarea name="comment" id="coment" cols="30" rows="10"></textarea>
                 <input type="file" name="comment_image"></input>
