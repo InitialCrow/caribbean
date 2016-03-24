@@ -18,13 +18,12 @@
             </thead>
             <tbody>
             @forelse($admins as $admin)
-                <tr>
-
+                <tr class="admin">
                         <td>{{$admin->login}}</td>
                         <td>{{$admin->name}}</td>
                         <td>
-                            <p id="foo">http://mondomaine/my_event/{{$admin->url}}</p>
-                            <button class="btn" data-clipboard-target="#foo">
+                            <p>http://mondomaine/my_event/{{$admin->url}}</p>
+                            <button class="btn" data-clipboard-target>
                             <img src="{{url('assets/images/clippy.svg')}}" class="copy-clip" alt="Copy to clipboard">
                             </button>
                         </td>

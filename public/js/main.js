@@ -6,6 +6,7 @@ $(document).ready(function(){
 	deleteContent();
 
     new Clipboard('.btn');
+    clipBoard();
 });
 
 
@@ -53,4 +54,21 @@ function deleteContent(){
 		$form.submit();
 		
 	})
+}
+
+function clipBoard(){
+    var $admin = $('.admin');
+    var $btn = $admin.children('td').children('button');
+
+    for( var i= 0; i<$admin.length; i++){
+        console.log(i);
+        $admin[i] = $admin.children('td').children('p').attr('class', 'admin_'+i);
+        var $attr = $admin[i].attr('class');
+
+        $btn[i] = $btn.attr('data-clipboard-target','.'+$attr);
+
+
+
+    }
+
 }

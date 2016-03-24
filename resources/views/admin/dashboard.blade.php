@@ -7,10 +7,10 @@
         </div>
           <div class="wrapper">
         <h2> mariage de {{$admins[0]->name}}</h2>
-        <section class="delay">compte à rebours</section>
+        <section class="delay col-md-6">compte à rebours</section>
         <form action="{{url('my_event/'.$adminToken,'change')}}" method="post" enctype="multipart/form-data" >
         
-            <section class="presentation">
+            <section class="presentation  col-md-6 ">
                 <h2>Présentation</h2>
                 @if(!empty($presentation))
                 <textarea name="presentation" id="presentation" cols="30" rows="10">{{$presentation[0]->text}}</textarea>
@@ -21,7 +21,7 @@
                
                 @endif
             </section>
-            <section class="gallery">
+            <section class="gallery  col-md-6">
                 <h2>Gallery</h2>
                 <ul>
                 @forelse($gallery as $picture)
@@ -33,7 +33,7 @@
                 <input type="file" name="gallery_image" size="40">
                 </ul>
             </section>
-            <section class="planning">
+            <section class="planning  col-md-6">
                 <h2>Déroulement</h2>
                 <ul>
                     @forelse($todoListConvert as $todo)
@@ -46,29 +46,34 @@
                 </ul>
                 <input class="addButton" type="button" value="+">
             </section>
-            <section class="actu">
+            <section class="actu  col-md-12">
                 <h2>Actualités : </h2>
                 @if($contentBlogs !== null)
                     @foreach($contentBlogs as $contentBlog)
-                        <h3>{{$contentBlog->title_html}}</h3><input class="delete" type="submit" value="x" data="{{$contentBlog->id}}" data-type="contentBlog" name="delete">
+                        <div class="col-lg-4">
+                        <h3>{{$contentBlog->title_html}}</h3><input class="delete btn btn-danger " type="submit" value="x" data="{{$contentBlog->id}}" data-type="contentBlog" name="delete">
                         <p>{{$contentBlog->text}}</p>
                         @if ($contentBlog->image_uri !== null)
-                        <img src="{{url('uploads/admins_'.$admins[0]->name.'/content_blog_img', $contentBlog->image_uri)}}">
+                        <img class="img-responsive img-rounded" src="{{url('uploads/admins_'.$admins[0]->name.'/content_blog_img', $contentBlog->image_uri)}}">
                         @else
                         <p>There are no image yet!</p>
                         @endif
                     @endforeach
                     @else
-                    <p>There are no content!</p>
-                @endif
-                <input type="text" name="titre_actu" placeholder="titre de votre actualité">
-                <textarea name="text_actu" id="text_actu" cols="30" rows="10" placeholder="text de votre actualité"></textarea>
+                        <p>There are no content!</p>
+                                <hr/>
+                        </div>
+                        @endif
+                    <h3>Modifier : </h3>
+                <input type="text" name="titre_actu" placeholder="titre de votre actualité" class="form-control">
+                        <br/>
+                <textarea name="text_actu" id="text_actu" cols="30" class="form-control" rows="10" placeholder="Ecriver vos actualités..."></textarea>
                 <input type="file" name="actu_image" size="40">
-                <input type="submit" value="envoyer"/>
+                <button type="submit" class="btn btn-lg btn-primary">Envoyer</button>
             </section>
             {{@csrf_field()}}
         </form>
-        <section class="comment">
+        <section class="comment  col-md-12">
             <h2>Commentaires</h2>
             <ul>
                 <li>
@@ -77,8 +82,9 @@
                 </li>
             </ul>
             <div>
-                <textarea name="comment" id="coment" cols="30" rows="10"></textarea>
-                <input type="submit" value="envoyer"/>
+                <textarea name="comment" id="coment" cols="30" rows="10" class="form-control" placeholder="Ecriver votre commentaire..."></textarea>
+                <br/>
+                <input type="submit" value="envoyer"  class="btn btn-default"/>
             </div>
         </section>
     </div>
