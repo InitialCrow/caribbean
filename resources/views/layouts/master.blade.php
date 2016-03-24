@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/slider/swiper.min.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/gallery/lightbox.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
 </head>
 
 <body>
@@ -21,15 +22,16 @@
 </section>
 
 <footer id="footer">
-    <p>Copyright © ...</p>
-    <ul>
-        <li>Facebook</li>
-        <li>Twitter</li>
-        <li>Instagram</li>
-    </ul>
+    {{--<p>Copyright © ...</p>--}}
+    {{--<ul>--}}
+        {{--<li>Facebook</li>--}}
+        {{--<li>Twitter</li>--}}
+        {{--<li>Instagram</li>--}}
+    {{--</ul>--}}
 </footer>
 
 <script src="{{url('js/lib/jquery.min.js')}}"></script>
+<script src="{{url('js/lib/clipboard.min.js')}}"></script>
 <script src="{{url('js/lib/slider/swiper.min.js')}}"></script>
 <script src="{{url('js/lib/gallery/lightbox.js')}}"></script>
 <script src="{{url('js/lib/jquery.countdown.js')}}"></script>

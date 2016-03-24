@@ -1,5 +1,5 @@
-<nav class="wrapper nav-header">
-    <ul>
+<nav class="wrapper nav-header navbar navbar-default navbar-fixed" >
+    <ul class="nav">
         <li><a href="{{url('/')}}">Accueil</a></li>
         <li><a href="{{url('/agence')}}">L'Agence</a></li>
         <li><a href="{{url('/formule')}}">Nos Prestations</a></li>

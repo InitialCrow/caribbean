@@ -4,6 +4,8 @@ $(document).ready(function(){
 	countDown("2016/04/15");
 	swipe();
 	deleteContent();
+
+    new Clipboard('.btn');
 });
 
 

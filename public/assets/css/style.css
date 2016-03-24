@@ -16,33 +16,15 @@ body{
 
 /* ======HEADER======= */
 
-header{
-    background-color: #269abc;
-    color:#fff;
-    min-height: 100px;
-}
-
 header ul{
     text-align: center;
 }
 
 header ul li{
-    display: inline-block;
+    display: inline-block!important;
 }
 
-header ul li a{
-    color:#fff;
-    text-decoration: none;
-    padding: 5px;
-}
-
-header .nav-header{
-    display: inline-block;
-}
-
-header h1.nav-logo{
-    display: inline-block;
-}
+header .nav-logo{text-align:center;}
 
 /* ======INDEX======= */
 
@@ -98,6 +80,10 @@ table{
 
 .gallery ul li img{
     width: 100%;
+}
+
+.copy-clip{
+    width: 20px;
 }
 
 /* ======EVENT======= */

@@ -2,24 +2,20 @@
 
 @section('content')
     @parent
-            <section class="event-login wrapper">
+            <section class="event-login wrapper container">
             <h1 class="center">Connexion au panneau d'administration</h1>
-                <form action="{{url('superUser/check')}}" method="post" class="center">
-                    <div>
-                        <label for="name">Identifiant:</label>
-                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                <form action="{{url('superUser/check')}}" method="post" class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Identifiant : </label>
+                        <input type="text" name="name" tabindex="1" class="form-control" id="name" placeholder="Identifiant">
                     </div>
-                    <div>
-                        <label for="name">Mot de passe:</label>
-                        <input type="password" name="password" id="password" value="" tabindex="1" />
+                    <div class="form-group">
+                        <label for="password">Mot de passe : </label>
+                        <input type="password" name="password" tabindex="1" class="form-control" id="password" placeholder="Password">
                     </div>
-                    <div>
-                        <input type="submit" value="Submit" />
-                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
                     {{@csrf_field()}}
-                </form>
+                    </form>
             </section>
-        </div>
-    </section>
 @stop
 
