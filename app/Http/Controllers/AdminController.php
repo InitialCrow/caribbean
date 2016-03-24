@@ -72,7 +72,7 @@ class AdminController extends Controller
 			if(!empty($credential['actu_image'])){
 				$imgContentBlog = $credential['actu_image'];
 				$imgContentBlog->move('uploads/admins_'.$admin->name.'/content_blog_img/',$imgContentBlog->getClientOriginalName());
-				$imgContentBlog = $imgContentBlog->getClientOriginalName();
+			
 			}
 			else{
 				$imgContentBlog = null;

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@include('partials.adminNav')
 @section('content')
     @parent
         <div class="wrapper">

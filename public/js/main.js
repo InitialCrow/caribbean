@@ -4,6 +4,7 @@ $(document).ready(function(){
 	countDown("2016/04/15");
 	swipe();
 	deleteContent();
+	saveFile('.file');
 });
 
 
@@ -52,3 +53,24 @@ function deleteContent(){
 		
 	})
 }
+
+function saveFile(idButton){
+	var $button = $(idButton);
+	var choice = '<button class="save" type="submit">enregister</button>';
+	var $save = $('.save');
+	$button.on('click', function(evt){
+		$this = $(evt.target);
+		
+		
+		if($this.attr('data-active') !="true"){
+			$(this).after(choice);
+		}
+		$this.attr('data-active','true');
+	})
+	
+}
+
+	
+	
+	
+

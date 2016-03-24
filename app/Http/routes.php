@@ -55,6 +55,7 @@ Route::group(['middleware' => ['web']], function ($id) {
 		Route::any('/my_event/{token}/edit/delete/{type}/{id}', 'AdminController@delete');
 		Route::any('/my_event/{token}/send','AdminController@send');
 		Route::any('/my_event/{id}/comment','AdminController@comment');
+		Route::any('/my_event/{id}/boxTool','BoxToolController@show');
 		
 	});
 	Route::any('/my_event/{id}/guest/{token}','GuestController@login');
