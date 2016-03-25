@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.0.0",
-    "clipboard": "^1.5.9",
-    "laravel-elixir": "^4.0.0"
+    "laravel-elixir": "^4.0.0",
+    "maildev": "^0.13.0"
   }
 }

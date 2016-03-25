@@ -5,8 +5,12 @@ $(document).ready(function(){
 	swipe();
 	deleteContent();
 
-    new Clipboard('.btn');
-    clipBoard();
+
+	new Clipboard('.btn');
+	clipBoard();
+
+	saveFile('.file');
+
 });
 
 
@@ -25,20 +29,20 @@ function generateTodo(){
 }
 
 function countDown(timer){
-    var $started = $('#getting-started');
+	var $started = $('#getting-started');
 
-    $started.countdown(timer, function(event) {
-        $(this).text(
-            event.strftime('%D days %H heures :%M minutes :%S secondes')
-        );
-    });
+	$started.countdown(timer, function(event) {
+		$(this).text(
+			event.strftime('%D days %H heures :%M minutes :%S secondes')
+		);
+	});
 }
 
 function swipe(){
-    var mySwiper = new Swiper ('.swiper-container', {
-        direction: 'horizontal',
-        loop: true
-    });
+	var mySwiper = new Swiper ('.swiper-container', {
+		direction: 'horizontal',
+		loop: true
+	});
 }
 
 function deleteContent(){
@@ -52,23 +56,41 @@ function deleteContent(){
 		var $url = window.location.href+'/delete/'+$type+'/'+$id;
 		$form.attr('action',$url);
 		$form.submit();
-		
+
 	})
 }
 
+
 function clipBoard(){
-    var $admin = $('.admin');
-    var $btn = $admin.children('td').children('button');
+	var $admin = $('.admin');
+	var $btn = $admin.children('td').children('button');
 
-    for( var i= 0; i<$admin.length; i++){
-        console.log(i);
-        $admin[i] = $admin.children('td').children('p').attr('class', 'admin_'+i);
-        var $attr = $admin[i].attr('class');
+	for( var i= 0; i<$admin.length; i++){
+		console.log(i);
+		$admin[i] = $admin.children('td').children('p').attr('class', 'admin_'+i);
+		var $attr = $admin[i].attr('class');
+		$btn[i] = $btn.attr('data-clipboard-target','.'+$attr);
+	}
+}
 
-        $btn[i] = $btn.attr('data-clipboard-target','.'+$attr);
+function saveFile(idButton){
+	var $button = $(idButton);
+	var choice = '<button class="save" type="submit">enregister</button>';
+	var $save = $('.save');
+	$button.on('click', function(evt){
+		$this = $(evt.target);
 
 
-
-    }
+		if($this.attr('data-active') !="true"){
+			$(this).after(choice);
+		}
+		$this.attr('data-active','true');
+	})
 
 }
+
+
+
+
+
+

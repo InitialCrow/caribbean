@@ -39,16 +39,13 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'superUser',
-        ],
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admin',
-        ],
+        ]
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'superUser',
-        ],
+
+        // 'api' => [
+        //     'driver' => 'token',
+        //     'provider' => 'superUser',
+        // ],
     ],
 
     /*
@@ -73,15 +70,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\SuperUser::class,
         ],
-        'admin' => [
-            'driver' => 'eloquent',
-            'model' => App\Admin::class,
-        ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+
+        'users' => [
+            'driver' => 'database',
+            'table' => 'users',
+        ],
     ],
 
     /*

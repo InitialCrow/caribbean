@@ -13,7 +13,8 @@
                         <th><label for="log">Identifiant</label></th>
                         <th><label for="name">nom des mariées</label></th>
                         <th><label for="token">Lien</label></th>
-                        <th>Fichier</th>
+                        <th><label>Copy</label></th>
+                        <th><label for="file">Fichier</label></th>
                 </tr>
             </thead>
             <tbody>
@@ -23,38 +24,41 @@
                         <td>{{$admin->name}}</td>
                         <td>
                             <p>http://mondomaine/my_event/{{$admin->url}}</p>
-                            <button class="btn" data-clipboard-target>
-                            <img src="{{url('assets/images/clippy.svg')}}" class="copy-clip" alt="Copy to clipboard">
-                            </button>
                         </td>
-                        <td><input type="file"/></td>
-                        <form action="{{url('superUser/remove-admin', $admin->id)}}" method="get">
-                                {{method_field('DELETE')}}
-                                {{csrf_field()}}
-                                <td><input type="submit" value="supprimer"/></td>
-                        </form>
-                </tr>
-            @empty
-                <p>No users</p>
-            @endforelse
-                <form action="{{url('superUser/add-admin')}}" method="post">
+                            <td>
+                                <button class="btn" data-clipboard-target>
+                                    <img src="{{url('assets/images/clippy.svg')}}" class="copy-clip" alt="Copy to clipboard">
+                                </button>
+                            </td>
+                        
+                        <td>
+                                <form class ="saveFile" action="{{url('superUser/save-file', $admin->id)}}" enctype="multipart/form-data" method="post">
+                                    <input class="file" type="file" name="file"/>
 
-                    
+                                    {{csrf_field()}}
+                                </form>
+                        </td>
+                        <td>
+                                <form action="{{url('superUser/remove-admin', $admin->id)}}" method="get">
+                                            {{method_field('DELETE')}}
+                                            {{csrf_field()}}
+                                            <td><input type="submit" value="supprimer"/></td>
+                                </form>
+                        </td>
+                @empty
+                    <p>No users</p>
+                @endforelse
                     <tr>
+                        <form action="{{url('superUser/add-admin')}}" method="post" enctype="multipart/form-data">
                         <td><input type="text" name="login" id="log" value="" tabindex="1" /></td>
                         <td><input type="text" name="name" id="name" value="" tabindex="1" /></td>
-                        <td><input type="file"/></td>
+                        <td><input class="file" type="file" name="file"/></td>
                         <td><input type="submit" value="Enregistrer" /></td>
-                        
+                        {{@csrf_field()}}
+                        </form>
                     </tr>
-                    {{@csrf_field()}}
-                </form>
-
-             </tbody>
-        </table>
+            </table>
         </div>
     </section>
 
-@stop
-@section('content')
 @stop

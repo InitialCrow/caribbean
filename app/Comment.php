@@ -13,7 +13,7 @@ class Comment extends Model
 		* @var array
 		*/
 	protected $fillable = [
-		'guest_id', 'text', 'image_uri', 'admin_id'
+		'text', 'image_uri', 'admin_id','name'
 	];
 
 	public function guest_id(){

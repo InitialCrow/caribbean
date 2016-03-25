@@ -14,12 +14,11 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('guest_id')->unsigned();
+                $table->string('name',20);
                 $table->text('text');
-                $table->string('image_uri',50);
+                $table->string('image_uri',50)->nullable();
                 $table->integer('admin_id')->unsigned();
                 $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
-                $table->foreign('guest_id')->references('id')->on('guests')->onDelete('cascade');
 
                         
         });

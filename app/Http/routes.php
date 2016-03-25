@@ -38,7 +38,7 @@ Route::get('/contact', 'FrontController@contact');
 
 Route::group(['middleware' => ['web']], function ($id) {
 
-    Route::get('/evenement', 'FrontController@evenement');
+    	Route::get('/evenement', 'FrontController@evenement');
 	Route::any('/superUser', 'SuperUserController@login');
 	Route::any('/superUser/check', 'SuperUserController@check');
 	Route::any('/my_event/check', 'AdminController@check');
@@ -47,13 +47,26 @@ Route::group(['middleware' => ['web']], function ($id) {
 
 		Route::controller('superUser', 'SuperUserController');
 		
+		
 	});
-	Route::group(['middleware' => ['admin']], function(){
-		Route::any('/my_event/{id}', 'AdminController@eventAdmin');
-		Route::any('/my_event/{id}/change', 'AdminController@change');
-		Route::any('/my_event/{id}/edit', 'AdminController@edit');
-		Route::any('/my_event/{token}/edit/delete/{type}/{id}', 'AdminController@delete');
-	});
+	
+	
+
+	//admins
+	Route::any('/my_event/{id}', 'AdminController@eventAdmin');
+
+	Route::any('/my_event/{id}/change', 'AdminController@change');
+	Route::any('/my_event/{id}/edit', 'AdminController@edit');
+	Route::any('/my_event/{token}/edit/delete/{type}/{id}', 'AdminController@delete');
+	Route::any('/my_event/{token}/send','AdminController@send');
+	Route::any('/my_event/{id}/comment','AdminController@comment');
+	Route::any('/my_event/{id}/boxTool','BoxToolController@show');
+
+	
+	//guests
+	Route::any('/my_event/{id}/guest/{token}','GuestController@login');
+	Route::any('/my_event/{id}/guest/{token}/subcribe','GuestController@subcribe');
+	Route::any('/my_event/{id}/guest/{token}/comment','GuestController@comment');
 
 });
 
