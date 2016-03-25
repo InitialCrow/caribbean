@@ -76,7 +76,7 @@
             </li>
             @endforelse
         </ul>
-        <form action="{{url('my_event/'.$admin->url.'/comment')}}" method="post" enctype="multipart/form-data" >
+        <form action="{{url('my_event/'.$admin->url.'/guest/'.$guest->token.'/comment')}}" method="post" enctype="multipart/form-data" >
             <div>
                 <textarea name="comment" id="coment" cols="30" rows="10" class="form-control" placeholder="Ecriver votre commentaire..."></textarea>
                 <br/>

@@ -21,12 +21,12 @@ class GuestController extends Controller
     	
     	
     	if(!empty($guest->name)){
-    		$presentation = Presentation::where("admin_id","=","$admin->id")->first();
-		$contentBlogs = ContentBlog::where('admin_id', '=' , $admin->id)->get();
-		$gallery = Gallery::where('admin_id', '=' , $admin->id)->get();
-		$todoList = TodoList::where('admin_id', '=' , $admin->id)->get();
-		$todoListConvert = $todoList->toArray();
-		$comments =  Comment::where('admin_id', '=' , $admin->id)->get();
+	    	$presentation = Presentation::where("admin_id","=","$admin->id")->first();
+			$contentBlogs = ContentBlog::where('admin_id', '=' , $admin->id)->get();
+			$gallery = Gallery::where('admin_id', '=' , $admin->id)->get();
+			$todoList = TodoList::where('admin_id', '=' , $admin->id)->get();
+			$todoListConvert = $todoList->toArray();
+			$comments =  Comment::where('admin_id', '=' , $admin->id)->get();
 
     		return view('guest.my_event', compact(['contentBlogs','admin','gallery','todoListConvert','presentation','guest','comments']));
     	}
@@ -47,6 +47,7 @@ class GuestController extends Controller
 		return redirect()->intended('my_event/'.$adminId.'/guest/'.$guestToken);
 	}
 	public function comment(Request $request, $adminUrl, $guestToken){
+		
 		$admin = Admin::where("url","=","$adminUrl")->first();
 		$guest = Guest::where("token","=","$guestToken")->first();
 		$credential = $request->all();
