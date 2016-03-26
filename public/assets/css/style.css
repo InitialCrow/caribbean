@@ -37,6 +37,9 @@ header .nav-logo{text-align:center;}
 .swiper-container{
     min-height: 300px;
 }
+.hidden_add_admin{
+    display: none;
+}
 
 /* ======AGENCE======= */
 

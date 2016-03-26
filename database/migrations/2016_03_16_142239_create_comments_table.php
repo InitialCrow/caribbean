@@ -18,7 +18,9 @@ class CreateCommentsTable extends Migration
                 $table->text('text');
                 $table->string('image_uri',50)->nullable();
                 $table->integer('admin_id')->unsigned();
+                $table->integer('content_blog_id')->unsigned();
                 $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+                $table->foreign('content_blog_id')->references('id')->on('content_blogs')->onDelete('cascade');
 
                         
         });

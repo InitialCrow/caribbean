@@ -6,7 +6,7 @@
         <div class="wrapper">
             <h1 class="center">Panneau Clients</h1>
         <table class="table table-striped">
-            <button type="button" class="btn btn-default btn-lg">Ajouter un admin</button>
+            <button  class="btn-default btn-lg add_admin_btn">Ajouter un admin</button>
             
             <thead>
                 <tr>
@@ -18,6 +18,15 @@
                 </tr>
             </thead>
             <tbody>
+             <tr class='hidden_add_admin add_admin_form'>
+                        <form  action="{{url('superUser/add-admin')}}" method="post" enctype="multipart/form-data">
+                            <td><input type="text" name="login" id="log" value="" tabindex="1" /></td>
+                            <td><input type="text" name="name" id="name" value="" tabindex="1" /></td>
+                            <td><input class="file" type="file" name="file"/></td>
+                            <td><input type="submit" value="Enregistrer" /></td>
+                            {{@csrf_field()}}
+                        </form>
+            </tr>
             @forelse($admins as $admin)
                 <tr class="admin">
                         <td>{{$admin->login}}</td>
@@ -48,15 +57,7 @@
                 @empty
                     <p>No users</p>
                 @endforelse
-                    <tr>
-                        <form action="{{url('superUser/add-admin')}}" method="post" enctype="multipart/form-data">
-                        <td><input type="text" name="login" id="log" value="" tabindex="1" /></td>
-                        <td><input type="text" name="name" id="name" value="" tabindex="1" /></td>
-                        <td><input class="file" type="file" name="file"/></td>
-                        <td><input type="submit" value="Enregistrer" /></td>
-                        {{@csrf_field()}}
-                        </form>
-                    </tr>
+                   
             </table>
         </div>
     </section>

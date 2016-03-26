@@ -14,7 +14,7 @@ class ContentBlog extends Model
 		* @var array
 		*/
 	protected $fillable = [
-		'admin_id', 'text', 'image_uri', 'title_html'
+		'admin_id', 'text', 'image_uri', 'title_html', 'guest_id'
 	];
 
 	public function guest_id(){

@@ -46,6 +46,7 @@ $factory->define(App\Guest::class, function( Faker\Generator $faker){
 $factory->define(App\Comment::class, function( Faker\Generator $faker){
 	return[
 		'admin_id' => $faker->numberBetween($min = 1, $max = 2),
+		'content_blog_id' => $faker->numberBetween($min = 1, $max = 2),
 		'text' => $faker->text,
 		'name'=> $faker->name
 

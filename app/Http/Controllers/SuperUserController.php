@@ -44,7 +44,8 @@ class SuperUserController extends Controller
 
 	}
 	public function get_dashboard(){
-		$admins = Admin::all();
+		$admins = Admin::orderBy('id','desc')->get();
+		
 		return view("superUser.dashboard",compact('admins'));
 	}
 	public function post_addAdmin(Request $request){

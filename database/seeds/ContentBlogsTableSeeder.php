@@ -14,9 +14,11 @@ class ContentBlogsTableSeeder extends Seeder
     public function run()
     {	
 
-    	
-    	// $files = Storage::allFiles();
-    	
+
+    	File::deleteDirectory('public/uploads');
+		
+	$files = Storage::allFiles();
+	Storage::delete($files);
 	factory(App\ContentBlog::class,2)->create()->each(function($contentBlog){
 		$this->id ++;
 	

@@ -1,7 +1,8 @@
 $(document).ready(function(){
+	addAdmin();
 	generateTodo();
 
-	countDown("2016/04/15");
+	countDown();
 	swipe();
 	deleteContent();
 
@@ -28,14 +29,20 @@ function generateTodo(){
 	})
 }
 
-function countDown(timer){
+function countDown(){
+	
 	var $started = $('#getting-started');
-
-	$started.countdown(timer, function(event) {
-		$(this).text(
-			event.strftime('%D days %H heures :%M minutes :%S secondes')
-		);
-	});
+	
+	if($started !== undefined){
+		var $timer = $started.attr('data-time');
+		
+		$started.countdown($timer, function(event) {
+			$(this).text(
+				event.strftime('%D days %H heures :%M minutes :%S secondes')
+			);
+		});
+	}
+	
 }
 
 function swipe(){
@@ -66,7 +73,6 @@ function clipBoard(){
 	var $btn = $admin.children('td').children('button');
 
 	for( var i= 0; i<$admin.length; i++){
-		console.log(i);
 		$admin[i] = $admin.children('td').children('p').attr('class', 'admin_'+i);
 		var $attr = $admin[i].attr('class');
 		$btn[i] = $btn.attr('data-clipboard-target','.'+$attr);
@@ -86,6 +92,21 @@ function saveFile(idButton){
 		}
 		$this.attr('data-active','true');
 	})
+
+}
+
+function addAdmin(){
+
+	
+	$form = $('.add_admin_form');
+	$button = $('.add_admin_btn');
+	
+	$button.on('click',function(){
+		console.log('clikc')
+		
+		$form.removeClass('hidden_add_admin');
+	});
+
 
 }
 

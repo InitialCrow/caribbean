@@ -13,7 +13,7 @@ class Comment extends Model
 		* @var array
 		*/
 	protected $fillable = [
-		'text', 'image_uri', 'admin_id','name'
+		'text', 'image_uri', 'admin_id','name','content_blog_id'
 	];
 
 	public function guest_id(){
@@ -21,6 +21,9 @@ class Comment extends Model
 	}
 	public function admin_id(){
 		return $this->belongsTo('App\Admin');
+	}
+	public function content_blog_id(){
+		return $this->belongsTo('App\ContentBlog');
 	}
 	public function text(){
 		return $this->hasMany('App\Comment');

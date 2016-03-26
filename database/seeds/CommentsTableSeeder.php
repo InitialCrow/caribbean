@@ -16,10 +16,7 @@ class CommentsTableSeeder extends Seeder
 
     	
 		
-		File::deleteDirectory('public/uploads');
 		
-		$files = Storage::allFiles();
-		Storage::delete($files);
 		factory(App\Comment::class,5)->create()->each(function($comment){
 
 			$this->nb ++;

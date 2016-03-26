@@ -57,6 +57,8 @@ class AdminController extends Controller
 			$comments = Comment::where('admin_id', '=' , $admin->id)->get();
 			$todoList = TodoList::where('admin_id', '=' , $admin->id)->get();
 			$todoListConvert = $todoList->toArray();
+
+
 		}
 		
 		if(session()->get('admin')->remember_token ===  $admin->remember_token ){
@@ -89,7 +91,12 @@ class AdminController extends Controller
 		if(session()->get('admin')->remember_token ===  $admin->remember_token ){
 			if($request->isMethod('post')){
 			
-					
+			if(!empty($credential['chrono'])){
+				
+				$admin->timer = $credential['chrono'];
+				
+			}
+			$admin->save();
 			if(!empty($credential['actu_image'])){
 				$imgContentBlog = $credential['actu_image'];
 				$imgContentBlog->move('uploads/admins_'.$admin->name.'/content_blog_img/',$imgContentBlog->getClientOriginalName());
@@ -178,13 +185,15 @@ class AdminController extends Controller
 		
 		
 	}
-	public function comment(Request $request, $adminUrl){
+	public function comment(Request $request, $adminUrl, $idContentBlog){
 		if(empty(session()->get('admin'))){
 
 			return redirect()->intended('evenement/');
 		}
 		else{
 			$admin = Admin::where("url","=","$adminUrl")->first();
+			$contentBlog =  ContentBlog::where("id","=","$idContentBlog")->first();
+
 			
 		}
 		if(session()->get('admin')->remember_token ===  $admin->remember_token ){
@@ -203,7 +212,9 @@ class AdminController extends Controller
 						"text"=>$credential['comment'],
 						"image_uri"=>$imgComment,
 						"admin_id" =>$admin->id,
-						"name"=>$admin->name
+						"name"=>$admin->name,
+						"content_blog_id"=>$contentBlog->id,
+						
 					]);
 			$comment->save();
 

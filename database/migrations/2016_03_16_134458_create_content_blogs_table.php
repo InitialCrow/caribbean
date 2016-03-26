@@ -19,6 +19,8 @@ class CreateContentBlogsTable extends Migration
                 $table->text('text')->nullable();
                 $table->string('image_uri',50)->nullable();
                 $table->integer('admin_id')->unsigned();
+                $table->integer('guest_id')->unsigned()->nullable();
+                $table->foreign('guest_id')->references('id')->on('guests')->onDelete('cascade');
                 $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
 
                         

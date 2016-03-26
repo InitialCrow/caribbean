@@ -46,11 +46,12 @@ class GuestController extends Controller
 		$guest->save();
 		return redirect()->intended('my_event/'.$adminId.'/guest/'.$guestToken);
 	}
-	public function comment(Request $request, $adminUrl, $guestToken){
+	public function comment(Request $request, $adminUrl, $guestToken, $idContentBlog){
 		
 		$admin = Admin::where("url","=","$adminUrl")->first();
 		$guest = Guest::where("token","=","$guestToken")->first();
 		$credential = $request->all();
+		$contentBlog =  ContentBlog::where("id","=","$idContentBlog")->first();
 		if(!empty($credential["comment"])){
 			if(!empty($credential["comment_image"])){
 				$imgComment = $credential['comment_image'];
@@ -65,11 +66,41 @@ class GuestController extends Controller
 						"text"=>$credential['comment'],
 						"image_uri"=>$imgComment,
 						"admin_id" =>$admin->id,
-						"name"=>$guest->name
+						"name"=>$guest->name,
+						"content_blog_id"=>$contentBlog->id
 					]);
 			$comment->save();
 
 			
+		}
+		else{
+			return redirect()->intended('my_event/'.$adminUrl.'/guest/'.$guest->token);
+		}
+		return redirect()->intended('my_event/'.$adminUrl.'/guest/'.$guest->token);
+	}
+	public function add_actu(Request $request, $adminUrl, $guestToken){
+		$admin = Admin::where("url","=","$adminUrl")->first();
+		$guest = Guest::where("token","=","$guestToken")->first();
+		$credential = $request->all();
+		if(!empty($credential['titre_actu']) && !empty($credential['text_actu']) ){
+			if(!empty($credential['actu_image'])){
+				$imgContentBlog = $credential['actu_image'];
+				$imgContentBlog->move('uploads/admins_'.$admin->name.'/content_blog_img/',$imgContentBlog->getClientOriginalName());
+				$imgContentBlog = $imgContentBlog->getClientOriginalName();
+			
+			}
+			else{
+				$imgContentBlog = null;
+			}
+				
+				$contentBlog = new ContentBlog([
+						'title_html' => $credential['titre_actu'],
+						'text' => $credential['text_actu'],
+						'image_uri' => $imgContentBlog,
+						'admin_id'=> $admin->id,
+						'guest_id'=>$guest->id,
+				]);
+				$contentBlog->save();
 		}
 		else{
 			return redirect()->intended('my_event/'.$adminUrl.'/guest/'.$guest->token);
