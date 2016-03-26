@@ -3,28 +3,28 @@
 @section('content')
 @parent
 <div class="wrapper">
-	<h2>bienvenue {{$admin->name}} vous pouvez modifié votre page ici</h2>
+	<h2>Bienvenue {{$admin->name}}</h2>
 </div>
 <div class="wrapper">
-	<h2> mariage de {{$admin->name}}</h2>
-	<section class="delay col-md-6">compte à rebours</section>
+	<h2> Mariage de {{$admin->name}}</h2>
+	<section class="delay col-md-6">Compte à rebours</section>
 	<form action="{{url('my_event/'.$adminToken,'change')}}" method="post" enctype="multipart/form-data" >
 
 		<section class="presentation  col-md-6 ">
 			<h2>Présentation</h2>
 			@if(!empty($presentation))
-			<textarea name="presentation" id="presentation" cols="30" rows="10">{{$presentation->text}}</textarea>    
+			<textarea name="presentation" id="presentation" cols="30" rows="10" class="form-control">{{$presentation->text}}</textarea>
 			@else
-			<textarea name="presentation" id="presentation" cols="30" rows="10" placeholder="entrez une bref présentation"></textarea>
+			<textarea name="presentation" class="form-control" id="presentation" cols="30" rows="10" placeholder="entrez une bref présentation"></textarea>
 			@endif
 		</section>
 		<section class="gallery  col-md-6">
-			<h2>Gallery</h2>
+			<h2>Gallerie</h2>
 			<ul>
 				@forelse($gallery as $picture)
 				<li><img src="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" alt=""></li><input class="delete btn btn-danger" type="submit" value="x" data="{{$picture->id}}" data-type="gallery" name="delete">
 				@empty
-				<p>pas encore d'image dans la gallerie!</p>
+				<p>Il n'y a pas encore d'images dans la gallerie!</p>
 				@endforelse
 				<input type="file" name="gallery_image" size="40">
 			</ul>
@@ -36,11 +36,11 @@
 
 				<li>{{$todo['todo']}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$todo['id']}}" data-type="todoList" name="delete">
 				@empty
-				<p>deroulement non planifé!</p>
+				<p>Il n'y a pas de déroulement planifié</p>
 				@endforelse
 				<input class ="todo" type="text" name="todolist[1]list" placeholder="liste des chose à faire">
 			</ul>
-			<input class="addButton" type="button" value="+">
+			<input class="addButton btn btn-default" type="button" value="+">
 		</section>
 		<section class="actu  col-md-12">
 			<h2>Actualités : </h2>
@@ -52,11 +52,11 @@
 				@if ($contentBlog->image_uri !== null)
 				<img class="img-responsive img-rounded" src="{{url('uploads/admins_'.$admin->name.'/content_blog_img', $contentBlog->image_uri)}}">
 				@else
-				<p>There are no image yet!</p>
+				<p>Il n'y a pas encore d'image</p>
 				@endif
 				@endforeach
 				@else
-				<p>There are no content!</p>
+				<p>Il n'y a pas de contenu!</p>
 				<hr/>
 			</div>
 			@endif
@@ -69,14 +69,22 @@
 		</section>
 		{{@csrf_field()}}
 	</form>
+    <section class="guest col-md-6">
+        <h2>Inviter des personnes à l'evenement</h2>
+        <form action="{{url('my_event/'.$admin->url.'/send')}}" method ="post">
+            <label for="email">email:</label>
+            <input type="email"  class="form-control" name="email">
+            <input type="submit" class="btn btn-default">
+            {{@csrf_field()}}
+        </form>
+    </section>
 	<section class="comment  col-md-12">
 		<h2>Commentaires</h2>
 		<ul>
-
 			@forelse($comments as $comment)
-			<input class="delete btn btn-danger" type="submit" value="x" data="{{$comment->id}}" data-type="comment" name="delete">
 			<li>
-				<h3>name : {{$comment->name}}</h3>
+                <input class="delete btn btn-danger" type="submit" value="x" data="{{$comment->id}}" data-type="comment" name="delete">
+                <h3>{{$comment->name}} : </h3>
 				<p>{{$comment->text}}</p>
 
 				@if (!empty($comment->image_uri))
@@ -85,10 +93,9 @@
 				</p>
 				@endif
 				@empty
-				<p>pas encore de commentaire</p>
+				<p>Il n'y a pas encore de commentaires</p>
 			</li>
 			@endforelse
-
 		</ul>
 
 		<div>
@@ -96,16 +103,6 @@
 			<br/>
 			<input type="submit" value="envoyer"  class="btn btn-default"/>
 		</div>
-
-	</section>
-	<section class="guest">
-		<h2>invité des personnes à l'evenement</h2>
-		<form action="{{url('my_event/'.$admin->url.'/send')}}" method ="post">
-			<label for="email">email:</label>
-			<input type="email" name="email">
-			<input type="submit">
-			{{@csrf_field()}}
-		</form>
 
 	</section>
 </div>

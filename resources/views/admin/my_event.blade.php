@@ -9,13 +9,17 @@
 
 
 		<div id="getting-started"></div>
+        <ul>
+            <button class="btn"><a href="{{url('my_event/'.$admin->url.'/edit')}}">Editer</a></button>
+            <button class="btn"><a href="{{url('my_event/'.$admin->url.'/boxTool')}}">Fichiers</a></button>
+        </ul>
 	</section>
 	<section class="presentation col-md-6">
 		<h2>Présentation</h2>
 		<p>{{$presentation->text}}</p>
 	</section>
 	<section class="gallery col-md-6">
-		<h2>Gallery</h2>
+		<h2>Gallerie</h2>
 		<ul>
 			@forelse($gallery as $picture)
 			<li>
@@ -32,7 +36,7 @@
 
 			<li>{{$todo['todo']}}</li>
 			@empty
-			<p>deroulement non planifé!</p>
+			<p>Il n'y a pas encore de déroulement planifié</p>
 			@endforelse
 		</ul>
 	</section>
@@ -55,16 +59,26 @@
 		</div>
 		
 		@empty
-		<p>pas encore d'actu</p>
+		<p>Il n'y a pas encore d'actualités</p>
 		@endforelse
 	</section>
+    <section class="presence col-md-6">
+        <h2>Liste des invités</h2>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
 	<section class="comment actu col-md-12">
 		<h2>Commentaires</h2>
 		<ul>
 
 			@forelse($comments as $comment)
 			<li>
-				<h3>name : {{$comment->name}}</h3>
+				<h3>{{$comment->name}}</h3>
 				<p>{{$comment->text}}</p>
 				@if (!empty($comment->image_uri))
 				<p>
@@ -72,7 +86,7 @@
 				</p>
 				@endif
 				@empty
-				<p>pas encore de commentaire</p>
+				<p>Il n'y a pas encore de commentaires</p>
 			</li>
 			@endforelse
 		</ul>
@@ -80,7 +94,7 @@
 			<div>
 				<textarea name="comment" id="coment" cols="30" rows="10" class="form-control" placeholder="Ecriver votre commentaire..."></textarea>
 				<br/>
-				<input type="file" name="comment_image"></input>
+				<input type="file" name="comment_image">
 				<input type="submit" value="envoyer" class="btn btn-default"/>
 			</div>
 			{{@csrf_field()}}

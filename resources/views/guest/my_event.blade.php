@@ -15,13 +15,13 @@
         <p>{{$presentation->text}}</p>
     </section>
     <section class="gallery col-md-6">
-        <h2>Gallery</h2>
+        <h2>Gallerie</h2>
         <ul>
             @forelse($gallery as $picture)
             <li>
             <p><a href="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" data-lightbox="image"><img class="img-rounded" src="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" alt=""></a></p></li>
             @empty
-            <p>il n'y a pas encore de gallery</p>
+            <p>Il n'y a pas encore de gallerie</p>
             @endforelse
         </ul>
     </section>
@@ -32,7 +32,7 @@
 
             <li>{{$todo['todo']}}</li>
             @empty
-            <p>deroulement non planifé!</p>
+            <p>Il n'y a pas encore de déroulement planifié</p>
             @endforelse
         </ul>
     </section>
@@ -50,12 +50,12 @@
             @endif
             
             <p>{{$contentBlog->text}}</p>
-            <p><a class="btn btn-default" href="#" role="button">Comment</a></p>
+            <p><a class="btn btn-default" href="#" role="button">Commenter</a></p>
             <hr/>
         </div>
         
         @empty
-        <p>pas encore d'actu</p>
+        <p>Il n'y a pas encore d'actualités</p>
         @endforelse
     </section>
     <section class="comment actu col-md-12">
@@ -64,7 +64,7 @@
 
             @forelse($comments as $comment)
             <li>
-                <h3>name : {{$comment->name}}</h3>
+                <h3>{{$comment->name}}</h3>
                 <p>{{$comment->text}}</p>
                 @if (!empty($comment->image_uri))
                 <p>
@@ -72,7 +72,7 @@
                 </p>
                 @endif
                 @empty
-                <p>pas encore de commentaire</p>
+                <p>Il n'y a pas encore de commentaires</p>
             </li>
             @endforelse
         </ul>
@@ -80,8 +80,8 @@
             <div>
                 <textarea name="comment" id="coment" cols="30" rows="10" class="form-control" placeholder="Ecriver votre commentaire..."></textarea>
                 <br/>
-                <input type="file" name="comment_image"></input>
-                <input type="submit" value="envoyer" class="btn btn-default"/>
+                <input type="file" name="comment_image">
+                <input type="submit" value="Envoyer" class="btn btn-default"/>
             </div>
             {{@csrf_field()}}
         </form>

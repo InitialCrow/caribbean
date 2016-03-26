@@ -12,7 +12,5 @@
                     {{@csrf_field()}}
                 </form>
             </section>
-        </div>
-    </section>
 @stop
 
