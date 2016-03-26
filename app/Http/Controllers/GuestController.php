@@ -27,8 +27,9 @@ class GuestController extends Controller
 			$todoList = TodoList::where('admin_id', '=' , $admin->id)->get();
 			$todoListConvert = $todoList->toArray();
 			$comments =  Comment::where('admin_id', '=' , $admin->id)->get();
+			$guests = Guest::where('admin_id', '=' , $admin->id)->get();
 
-    		return view('guest.my_event', compact(['contentBlogs','admin','gallery','todoListConvert','presentation','guest','comments']));
+    		return view('guest.my_event', compact(['contentBlogs','admin','gallery','todoListConvert','presentation','guest','comments','guests']));
     	}
     	else{
     		

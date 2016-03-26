@@ -6,7 +6,8 @@
         <div class="wrapper">
             <h1 class="center">Panneau Clients</h1>
         <table class="table table-striped">
-            <button  class="btn-default btn-lg add_admin_btn">Ajouter un admin</button>
+            <a class="btn btn-default btn-lg" href="{{url('superUser','admin')}}">Ajouter un admin</a>
+
             
             <thead>
                 <tr>
@@ -32,10 +33,10 @@
                         <td>{{$admin->login}}</td>
                         <td>{{$admin->name}}</td>
                         <td>
-                            <p>http://mondomaine/my_event/{{$admin->url}}</p>
+                            <p>localhost:8000/my_event/{{$admin->url}}</p>
                         </td>
                             <td>
-                                <button class="btn" data-clipboard-target>
+                                <button class="clip" data-clipboard-target>
                                     <img src="{{url('assets/images/clippy.svg')}}" class="copy-clip" alt="Copy to clipboard">
                                 </button>
                             </td>
@@ -55,9 +56,8 @@
                                 </form>
                         </td>
                 @empty
-                    <p>No users</p>
+                    <p>pas de mariées</p>
                 @endforelse
-                   
             </table>
         </div>
     </section>

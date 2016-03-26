@@ -5,6 +5,7 @@
 <div class="wrapper">
 
 	<h2 class="center"> {{$admin->name}}</h2>
+
 	<section class="delay center margin-bottom-50 ">
 
 		@if($admin->timer !== null)
@@ -14,18 +15,20 @@
 		<p>la date de mariage n'est pas planifié</p>
 		@endif
 	</section>
+	@include('partials.adminNav')
+	
 	<section class="presentation col-md-6">
 		<h2>Présentation</h2>
 		<p>{{$presentation->text}}</p>
 	</section>
 	<section class="gallery col-md-6">
-		<h2>Gallery</h2>
+		<h2>Gallerie</h2>
 		<ul>
 			@forelse($gallery as $picture)
 			<li>
 			<p><a href="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" data-lightbox="image"><img class="img-rounded" src="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" alt=""></a></p></li>
 			@empty
-			<p>il n'y a pas encore de gallery</p>
+			<p>il n'y a pas encore de gallerie</p>
 			@endforelse
 		</ul>
 	</section>
@@ -36,7 +39,31 @@
 
 			<li>{{$todo['todo']}}</li>
 			@empty
-			<p>deroulement non planifé!</p>
+			<p>Il n'y a pas encore de déroulement planifié</p>
+			@endforelse
+		</ul>
+	</section>
+	<section class="presence col-md-6">
+		<h2>Liste des invités</h2>
+		<ul>
+			<h3> Présent :</h3>
+			@forelse($guests as $guest)
+				@if($guest->status === 1)
+				<li>{{$guest->name}}</li>
+				@endif
+			@empty
+			<p>il n'y a encore personne de present au mariage</p>
+			@endforelse
+
+		</ul>
+		<ul>
+			<h3> Pas Présent :</h3>
+			@forelse($guests as $guest)
+				@if($guest->status === 0)
+				<li>{{$guest->name}}</li>
+				@endif
+			@empty
+			<p>il n'y a personne qui manquera votre mariage</p>
 			@endforelse
 		</ul>
 	</section>
@@ -63,7 +90,7 @@
 					
 					
 					<li>
-						<h3>name : {{$comment->name}}</h3>
+						<h3>{{$comment->name}} :</h3>
 						<p>{{$comment->text}}</p>
 						@if (!empty($comment->image_uri))
 						<p>
@@ -79,31 +106,23 @@
 				@else
 				</ul>
 			@endif
-			<form action="{{url('my_event/'.$admin->url.'/comment/'.$contentBlogs[$index]->id)}}" method="post" enctype="multipart/form-data" >
-					<div>
-						<textarea name="comment" id="coment" cols="10" rows="5" class="form-control col-xs-6" placeholder="Ecriver votre commentaire..."></textarea>
-						<br/>
-						<input type="file" name="comment_image"></input>
-						<input type="submit" value="envoyer" class="btn btn-default"/>
-					</div>
-					{{@csrf_field()}}
-			</form>
-			
-			</section>
-			
-			
-		</div>
-		
-			
+				<form action="{{url('my_event/'.$admin->url.'/comment/'.$contentBlogs[$index]->id)}}" method="post" enctype="multipart/form-data" >
+						<div>
+							<textarea name="comment" id="coment" cols="10" rows="5" class="form-control col-xs-6" placeholder="Ecriver votre commentaire..."></textarea>
+							<br/>
+							<input type="file" name="comment_image"></input>
+							<input type="submit" value="envoyer" class="btn btn-default"/>
+						</div>
+						{{@csrf_field()}}
+				</form>			
+			</section>			
+		</div>					
 		<hr/>
-		
-
 		@empty
-		<p>pas encore d'actu</p>
+		<p>Il n'y a pas encore d'actualités</p>
 		@endforelse
 		
 	</section>
-	
 </div>
 
 @stop

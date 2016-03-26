@@ -1,5 +1,6 @@
 <nav class="wrapper nav-header">
-    <ul>
-        <li><a href="{{url('/my_event/'.$admin->url.'/boxTool')}}">BoxTool</a></li>
-    </ul>
+	<ul>
+		<a href="{{url('my_event/'.$admin->url.'/edit')}}"><button class="btn">Editer</button></a>
+		<a href="{{url('my_event/'.$admin->url.'/boxTool')}}"><button class="btn">Fichiers</button></a>
+	</ul>
 </nav>

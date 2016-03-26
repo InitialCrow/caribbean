@@ -2,12 +2,10 @@
 @include('partials.adminNav')
 @section('content')
 @parent
-<div class="wrapper">
-	<h2>bienvenue {{$admin->name}} vous pouvez modifié votre page ici</h2>
-</div>
+
 <div class="wrapper">
 	<h2> mariage de {{$admin->name}}</h2>
-	
+
 	<form action="{{url('my_event/'.$adminToken,'change')}}" method="post" enctype="multipart/form-data" >
 	
 		<section class="delay col-md-6">
@@ -19,21 +17,22 @@
 			<p>pour changer votre date de mariage</p>
 			<input placeholder="entrez la date de votre mariage année/moi/jour" , name="chrono"/>
 		</section>
+
 		<section class="presentation  col-md-6 ">
 			<h2>Présentation</h2>
 			@if(!empty($presentation))
-			<textarea name="presentation" id="presentation" cols="30" rows="10">{{$presentation->text}}</textarea>    
+			<textarea name="presentation" id="presentation" cols="30" rows="10" class="form-control">{{$presentation->text}}</textarea>
 			@else
-			<textarea name="presentation" id="presentation" cols="30" rows="10" placeholder="entrez une bref présentation"></textarea>
+			<textarea name="presentation" class="form-control" id="presentation" cols="30" rows="10" placeholder="entrez une bref présentation"></textarea>
 			@endif
 		</section>
 		<section class="gallery  col-md-6">
-			<h2>Gallery</h2>
+			<h2>Gallerie</h2>
 			<ul>
 				@forelse($gallery as $picture)
 				<li><img src="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" alt=""></li><input class="delete btn btn-danger" type="submit" value="x" data="{{$picture->id}}" data-type="gallery" name="delete">
 				@empty
-				<p>pas encore d'image dans la gallerie!</p>
+				<p>Il n'y a pas encore d'images dans la gallerie!</p>
 				@endforelse
 				<input type="file" name="gallery_image" size="40">
 			</ul>
@@ -45,11 +44,35 @@
 
 				<li>{{$todo['todo']}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$todo['id']}}" data-type="todoList" name="delete">
 				@empty
-				<p>deroulement non planifé!</p>
+				<p>Il n'y a pas de déroulement planifié</p>
 				@endforelse
 				<input class ="todo" type="text" name="todolist[1]list" placeholder="liste des chose à faire">
 			</ul>
-			<input class="addButton" type="button" value="+">
+			<input class="addButton btn btn-default" type="button" value="+">
+		</section>
+		<section class="presence col-md-6">
+			<h2>Liste des invités</h2>
+			<ul>
+				<h3> Présent :</h3>
+				@forelse($guests as $guest)
+					@if($guest->status === 1)
+					<li>{{$guest->name}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$guest->id}}" data-type="guest" name="delete">
+					@endif
+				@empty
+				<p>il n'y a encore personne de present au mariage</p>
+				@endforelse
+
+			</ul>
+			<ul>
+				<h3> Pas Présent :</h3>
+				@forelse($guests as $guest)
+					@if($guest->status === 0)
+					<li>{{$guest->name}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$guest->id}}" data-type="guest" name="delete">
+					@endif
+				@empty
+				<p>il n'y a personne qui manquera votre mariage</p>
+				@endforelse
+			</ul>
 		</section>
 		<section class="actu  col-md-12">
 			<h2>Actualités : </h2>
@@ -73,7 +96,7 @@
 							
 							
 							<li>
-								<h3>name : {{$comment->name}}</h3><input class="delete btn btn-danger " type="submit" value="x" data="{{$comment->id}}" data-type="comment" name="delete">
+								<h3>{{$comment->name}}:</h3><input class="delete btn btn-danger " type="submit" value="x" data="{{$comment->id}}" data-type="comment" name="delete">
 								<p>{{$comment->text}}</p>
 								@if (!empty($comment->image_uri))
 								<p>
@@ -95,8 +118,7 @@
 				@empty
 				<p>pas encore d'actu</p>
 				@endforelse
-			@endif
-			
+			@endif	
 		</section>
 		{{@csrf_field()}}
 	
@@ -118,7 +140,6 @@
 			<input type="submit">
 			{{@csrf_field()}}
 		</form>
-
 	</section>
 </div>
 @stop

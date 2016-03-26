@@ -2,18 +2,18 @@
 
 @section('content')
     @parent
-            <section class="boxTool">
-            <h1>BoxTool</h1>
-            @forelse($paths as $index => $path)
-	
-
-                <p>voir le fichier :<a href="{{url('uploads/'.$path)}}" >{{$names[$index]}}</a></p>
-                <a href="{{url('uploads/'.$path)}}" download="{{$names[$index]}}">telecharger</a>
-            
-               @empty
-               <p>pas encore de fichier partager</p>
-               @endforelse
+            <section class="boxTool wrapper">
+                <h1>Fichiers</h1>
+                <table class="table">
+                    <tr>
+                        @forelse($paths as $index => $path)
+                            <td><p>Voir le fichier :<a href="{{url('uploads/'.$path)}}" >{{$names[$index]}}</a></p></td>
+                            <td><a href="{{url('uploads/'.$path)}}" download="{{$names[$index]}}">Télécharger</a></td>
+                    </tr>
+                @empty
+                        <p>Il n'y a pas encore de fichier partagés</p>
+                    @endforelse
+                </table>
             </section>
-        </div>
-    </section>
+
 @stop

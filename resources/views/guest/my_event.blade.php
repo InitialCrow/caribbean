@@ -19,13 +19,13 @@
         <p>{{$presentation->text}}</p>
     </section>
     <section class="gallery col-md-6">
-        <h2>Gallery</h2>
+        <h2>Gallerie</h2>
         <ul>
             @forelse($gallery as $picture)
             <li>
             <p><a href="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" data-lightbox="image"><img class="img-rounded" src="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" alt=""></a></p></li>
             @empty
-            <p>il n'y a pas encore de gallery</p>
+            <p>Il n'y a pas encore de gallerie</p>
             @endforelse
         </ul>
     </section>
@@ -36,7 +36,31 @@
 
             <li>{{$todo['todo']}}</li>
             @empty
-            <p>deroulement non planifé!</p>
+            <p>Il n'y a pas encore de déroulement planifié</p>
+            @endforelse
+        </ul>
+    </section>
+    <section class="presence col-md-6">
+        <h2>Liste des invités</h2>
+        <ul>
+            <h3> Présent :</h3>
+            @forelse($guests as $guest)
+                @if($guest->status === 1)
+                <li>{{$guest->name}}</li>
+                @endif
+            @empty
+            <p>il n'y a encore personne de present au mariage</p>
+            @endforelse
+
+        </ul>
+        <ul>
+            <h3> Pas Présent :</h3>
+            @forelse($guests as $guest)
+                @if($guest->status === 0)
+                <li>{{$guest->name}}</li>
+                @endif
+            @empty
+            <p>il n'y a personne qui manquera votre mariage</p>
             @endforelse
         </ul>
     </section>
@@ -46,52 +70,50 @@
 
         
         <div class="col-md-12 ">
-            <h3>{{$contentBlogs[$index]->title_html}}</h3>
-            <p>{{$contentBlogs[$index]->text}}</p>
-            @if ($contentBlogs[$index]->image_uri !== null)
-            <p>
-                <img class="img-responsive img-rounded" src="{{url('uploads/admins_'.$admin->name.'/content_blog_img', $contentBlogs[$index]->image_uri)}}">
-            </p>
-            @endif
-            <section class="comment actu col-md-12">
-            @if(!empty($comments[$index]))
-                <ul>
-                @foreach($comments as $comment)
-                
-                    @if($comment->content_blog_id === $contentBlogs[$index]->id)
-                
+                <h3>{{$contentBlogs[$index]->title_html}}</h3>
+                <p>{{$contentBlogs[$index]->text}}</p>
+                @if ($contentBlogs[$index]->image_uri !== null)
+                <p>
+                    <img class="img-responsive img-rounded" src="{{url('uploads/admins_'.$admin->name.'/content_blog_img', $contentBlogs[$index]->image_uri)}}">
+                </p>
+                @endif
+                <section class="comment actu col-md-12">
+                @if(!empty($comments[$index]))
+                    <ul>
+                    @foreach($comments as $comment)
+                    
+                        @if($comment->content_blog_id === $contentBlogs[$index]->id)
+                    
+                        
+                        
+                        <li>
+                            <h3>{{$comment->name}} : </h3>
+                            <p>{{$comment->text}}</p>
+                            @if (!empty($comment->image_uri))
+                            <p>
+                                <img src="{{url('uploads/admins_'.$admin->name.'/comments', $comment->image_uri)}}">
+                            </p>
+                            @endif
+                        
+                        </li>
                     
                     
-                    <li>
-                        <h3>name : {{$comment->name}}</h3>
-                        <p>{{$comment->text}}</p>
-                        @if (!empty($comment->image_uri))
-                        <p>
-                            <img src="{{url('uploads/admins_'.$admin->name.'/comments', $comment->image_uri)}}">
-                        </p>
                         @endif
-                    
-                    </li>
+                    @endforeach
+                    @else
+                    </ul>
+                @endif
+                <form action="{{url('my_event/'.$admin->url.'/guest/'.$guest->token.'/comment/'.$contentBlogs[$index]->id)}}" method="post" enctype="multipart/form-data" >
+                        <div>
+                            <textarea name="comment" id="coment" cols="10" rows="5" class="form-control col-xs-6" placeholder="Ecriver votre commentaire..."></textarea>
+                            <br/>
+                            <input type="file" name="comment_image"></input>
+                            <input type="submit" value="envoyer" class="btn btn-default"/>
+                        </div>
+                        {{@csrf_field()}}
+                </form>
                 
-                
-                    @endif
-                @endforeach
-                @else
-                </ul>
-            @endif
-            <form action="{{url('my_event/'.$admin->url.'/guest/'.$guest->token.'/comment/'.$contentBlogs[$index]->id)}}" method="post" enctype="multipart/form-data" >
-                    <div>
-                        <textarea name="comment" id="coment" cols="10" rows="5" class="form-control col-xs-6" placeholder="Ecriver votre commentaire..."></textarea>
-                        <br/>
-                        <input type="file" name="comment_image"></input>
-                        <input type="submit" value="envoyer" class="btn btn-default"/>
-                    </div>
-                    {{@csrf_field()}}
-            </form>
-            
-            </section>
-            
-            
+                </section>
         </div>
         
             
@@ -99,7 +121,7 @@
         
 
         @empty
-        <p>pas encore d'actu</p>
+        <p>Il n'y a pas encore d'actualités</p>
         @endforelse
         
     </section>
@@ -114,7 +136,6 @@
                 {{@csrf_field()}}
             </form>
         </section>
-    
 </div>
 
 @stop

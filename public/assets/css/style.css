@@ -8,7 +8,7 @@ body{
 
 .wrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -67,6 +67,7 @@ table{
     padding: 10px;
 }
 
+
 /* ======EVENT_ADMIN======= */
 
 .gallery ul{
@@ -89,6 +90,11 @@ table{
 .copy-clip{
     width: 20px;
 }
+
+.comment li h3, .comment li p{display: inline;}
+.comment li p img{display:block;}
+.comment li{line-height: 50px;}
+.comment li input{float:right; margin: 5px;}
 
 /* ======EVENT======= */
 

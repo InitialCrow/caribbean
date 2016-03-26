@@ -57,22 +57,23 @@ class AdminController extends Controller
 			$comments = Comment::where('admin_id', '=' , $admin->id)->get();
 			$todoList = TodoList::where('admin_id', '=' , $admin->id)->get();
 			$todoListConvert = $todoList->toArray();
+			$guests = Guest::where('admin_id', '=' , $admin->id)->get();
 
 
 		}
 		
 		if(session()->get('admin')->remember_token ===  $admin->remember_token ){
 			if(!empty($presentation) ){
-			return view('admin.my_event', compact(['contentBlogs','admin','gallery','todoListConvert','presentation','comments']));	
+			return view('admin.my_event', compact(['contentBlogs','admin','gallery','todoListConvert','presentation','comments','guests']));	
 		
 			}
 			else{
 				return view('admin.dashboard', compact(['admin','gallery','todoListConvert','contentBlogs', 'adminToken','comments']));
 			}
 		}
-		
-		
-		
+		else{
+			return redirect()->intended('evenement/');
+		}
 	}
 	public function change(Request $request){
 		if(empty(session()->get('admin'))){
@@ -160,7 +161,9 @@ class AdminController extends Controller
 			return redirect()->intended('my_event/'.$adminToken);
     		}
 		}	
-		
+		else{
+			return redirect()->intended('evenement/');
+		}
 	}
 	public function edit(){
 		if(empty(session()->get('admin'))){
@@ -178,9 +181,13 @@ class AdminController extends Controller
 			$todoList = TodoList::where('admin_id', '=' , $admin->id)->get();
 			$todoListConvert = $todoList->toArray();
 			$comments = Comment::where('admin_id',"=", $admin->id)->get();
+			$guests = Guest::where('admin_id', '=' , $admin->id)->get();
 		}
 		if(session()->get('admin')->remember_token ===  $admin->remember_token ){
-			return view('admin.dashboard',compact(['admin', 'adminToken','presentation','gallery','todoListConvert','contentBlogs','comments']));
+			return view('admin.dashboard',compact(['admin', 'adminToken','presentation','gallery','todoListConvert','contentBlogs','comments','guests']));
+		}
+		else{
+			return redirect()->intended('evenement/');
 		}
 		
 		
@@ -224,9 +231,10 @@ class AdminController extends Controller
 				return redirect()->intended('my_event/'.$adminUrl);
 			}
 			return redirect()->intended('my_event/'.$adminUrl);
-			}
-		
-		
+		}
+		else{
+			return redirect()->intended('evenement/');
+		}	
 	}
 
 	public function delete(Request $request , $token, $type, $id){
@@ -256,10 +264,17 @@ class AdminController extends Controller
 				$comment = Comment::Find($id);
 				$comment->delete();
 			}
+			if($type ==="guest"){
+				
+				$guest = Guest::Find($id);
+				$guest->delete();
+			}
 			
 			 return redirect()->intended('my_event/'.$admin->url.'/edit');
 		}
-		
+		else{
+			return redirect()->intended('evenement/');
+		}
 		
 	}
 
@@ -298,7 +313,10 @@ class AdminController extends Controller
 				$message->to($user['email'])->subject('invitation au mariage de '.$user['name']);
 			});
 			return redirect()->intended('my_event/'.$admin->url);
-			}
+		}
+		else{
+			return redirect()->intended('evenement/');
+		}
 
 		
 	}

@@ -43,6 +43,10 @@ class SuperUserController extends Controller
     		}
 
 	}
+	public function get_admin(){
+		return view("superUser.addAdmin");
+	}
+
 	public function get_dashboard(){
 		$admins = Admin::orderBy('id','desc')->get();
 		
@@ -99,4 +103,5 @@ class SuperUserController extends Controller
 		}
 		return back()->with( ['message' => trans('app.success')] );
     }
+
 }
