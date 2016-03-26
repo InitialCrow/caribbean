@@ -6,8 +6,6 @@
 
 	<h2 class="center"> {{$admin->name}}</h2>
 	<section class="delay center margin-bottom-50">
-
-
 		<div id="getting-started"></div>
         <ul>
             <button class="btn"><a href="{{url('my_event/'.$admin->url.'/edit')}}">Editer</a></button>
@@ -25,7 +23,7 @@
 			<li>
 			<p><a href="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" data-lightbox="image"><img class="img-rounded" src="{{url('uploads/admins_'.$admin->name.'/gallery',$picture->image_uri)}}" alt=""></a></p></li>
 			@empty
-			<p>il n'y a pas encore de gallery</p>
+			<p>il n'y a pas encore de gallerie</p>
 			@endforelse
 		</ul>
 	</section>
@@ -40,7 +38,17 @@
 			@endforelse
 		</ul>
 	</section>
-	<section class="actu col-md-6">
+    <section class="presence col-md-6">
+        <h2>Liste des invités</h2>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+	<section class="actu col-md-12">
 		<h2>Actualités : </h2>
 		@forelse($contentBlogs as $contentBlog)
 
@@ -62,16 +70,6 @@
 		<p>Il n'y a pas encore d'actualités</p>
 		@endforelse
 	</section>
-    <section class="presence col-md-6">
-        <h2>Liste des invités</h2>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </section>
 	<section class="comment actu col-md-12">
 		<h2>Commentaires</h2>
 		<ul>

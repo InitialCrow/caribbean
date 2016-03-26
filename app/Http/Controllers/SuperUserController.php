@@ -98,4 +98,10 @@ class SuperUserController extends Controller
 		}
 		return back()->with( ['message' => trans('app.success')] );
     }
+
+    public function addAdmin(){
+        $admins = Admin::all();
+
+        return view('superUser.addAdmin', compact('admins'));
+    }
 }
