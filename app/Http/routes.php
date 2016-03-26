@@ -42,12 +42,13 @@ Route::group(['middleware' => ['web']], function ($id) {
 	Route::any('/superUser', 'SuperUserController@login');
 	Route::any('/superUser/check', 'SuperUserController@check');
 	Route::any('/my_event/check', 'AdminController@check');
-    Route::any('/superUser/check/addAdmin', 'SuperUserController@addAdmin');
+    
 
 
     Route::group(['middleware' => ['auth']], function(){
 
 		Route::controller('superUser', 'SuperUserController');
+		
 
 
 	});

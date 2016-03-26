@@ -43,6 +43,10 @@ class SuperUserController extends Controller
     		}
 
 	}
+	public function get_admin(){
+		return view("superUser.addAdmin");
+	}
+
 	public function get_dashboard(){
 		$admins = Admin::all();
 		return view("superUser.dashboard",compact('admins'));
@@ -99,9 +103,4 @@ class SuperUserController extends Controller
 		return back()->with( ['message' => trans('app.success')] );
     }
 
-    public function addAdmin(){
-        $admins = Admin::all();
-
-        return view('superUser.addAdmin', compact('admins'));
-    }
 }

@@ -1,14 +1,10 @@
 $(document).ready(function(){
 	generateTodo();
-
 	countDown("2016/04/15");
 	swipe();
 	deleteContent();
-
-
-	new Clipboard('.btn');
+	new Clipboard('.clip');
 	clipBoard();
-
 	saveFile('.file');
 
 });
@@ -66,7 +62,7 @@ function clipBoard(){
 	var $btn = $admin.children('td').children('button');
 
 	for( var i= 0; i<$admin.length; i++){
-		console.log(i);
+		
 		$admin[i] = $admin.children('td').children('p').attr('class', 'admin_'+i);
 		var $attr = $admin[i].attr('class');
 		$btn[i] = $btn.attr('data-clipboard-target','.'+$attr);
@@ -86,7 +82,6 @@ function saveFile(idButton){
 		}
 		$this.attr('data-active','true');
 	})
-
 }
 
 

@@ -6,7 +6,7 @@
         <div class="wrapper">
             <h1 class="center">Panneau Clients</h1>
         <table class="table table-striped">
-            <button type="button" class="btn btn-default btn-lg">Ajouter un admin</button>
+            <a class="btn btn-default btn-lg" href="{{url('superUser','admin')}}">Ajouter un admin</a>
             
             <thead>
                 <tr>
@@ -23,10 +23,10 @@
                         <td>{{$admin->login}}</td>
                         <td>{{$admin->name}}</td>
                         <td>
-                            <p>http://mondomaine/my_event/{{$admin->url}}</p>
+                            <p>localhost:8000/my_event/{{$admin->url}}</p>
                         </td>
                             <td>
-                                <button class="btn" data-clipboard-target>
+                                <button class="clip" data-clipboard-target>
                                     <img src="{{url('assets/images/clippy.svg')}}" class="copy-clip" alt="Copy to clipboard">
                                 </button>
                             </td>
@@ -46,17 +46,8 @@
                                 </form>
                         </td>
                 @empty
-                    <p>No users</p>
+                    <p>pas de mariées</p>
                 @endforelse
-                    <tr>
-                        <form action="{{url('superUser/add-admin')}}" method="post" enctype="multipart/form-data">
-                        <td><input type="text" name="login" id="log" value="" tabindex="1" /></td>
-                        <td><input type="text" name="name" id="name" value="" tabindex="1" /></td>
-                        <td><input class="file" type="file" name="file"/></td>
-                        <td><input type="submit" value="Enregistrer" /></td>
-                        {{@csrf_field()}}
-                        </form>
-                    </tr>
             </table>
         </div>
     </section>
