@@ -1,38 +1,333 @@
+/* FONT */
+
+@font-face {
+    font-family: 'DidotLTStd-Bold';
+    src: url('../font/DidotLTStd-Bold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DidotLTStd-Headline';
+    src: url('../font/DidotLTStd-Headline.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DidotLTStd-Italic';
+    src: url('../font/DidotLTStd-Italic.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DidotLTStd-Ornaments';
+    src: url('../font/DidotLTStd-Ornaments.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DidotLTStd-Roman';
+    src: url('../font/DidotLTStd-Roman.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Distant_Stroke';
+    src: url('../font/Distant_Stroke.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Distant_Stroke_Medium';
+    src: url('../font/Distant_Stroke_Medium.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Futura_Std_Medium';
+    src: url('../font/Futura_Std_Medium.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'FuturaStd-Book';
+    src: url('../font/FuturaStd-Book.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'FuturaStd-Light';
+    src: url('../font/FuturaStd-Light.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'EdwardianScriptITC';
+    src: url('../font/EdwardianScriptITC.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Modern_No._20';
+    src: url('../font/Modern_No._20.ttf') format('truetype');
+}
+
+/* CLASSE FONT */
+
+.didotLTStd-Bold{font-family: DidotLTStd-Bold;}
+.didotLTStd-Headline{font-family: DidotLTStd-Headline;}
+.didotLTStd-Italic{font-family: DidotLTStd-Italic;}
+.didotLTStd-Ornaments{font-family: DidotLTStd-Ornamentsd;}
+.didotLTStd-Roman{font-family: DidotLTStd-Roman;}
+.distant-Stroke{font-family: Distant_Stroke;}
+.distant-Stroke-Medium{font-family: Distant_Stroke_Medium;}
+.futuraStd-Book{font-family: FuturaStd-Book;}
+.futuraStd-Light{font-family: FuturaStd-Light;}
+.edwardianScriptITC{font-family: EdwardianScriptITC;}
+.modern-N-20{font-family: Modern_No_20;}
+
 body{
     width: 100%;
     margin: 0;
     padding: 0;
-    font-size: 1em; /* 16px */
-    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
 }
 
 .wrapper{
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .center{text-align: center}
 .margin-bottom-50{margin-bottom: 50px;}
 
+section{margin:50px 0;}
 /* ======HEADER======= */
 
+header .bar-top{
+    background-color: #c51e62;
+    height: 25px;
+}
+
 header ul{
-    text-align: center;
+    text-align: right;
 }
 
 header ul li{
     display: inline-block!important;
+    text-transform: uppercase;
 }
 
-header .nav-logo{text-align:center;}
+header nav ul li a{
+    color:#231f20;
+    border-right: 1px solid #c51260;
+    padding: 0 15px!important;
+    font-size: 1em;
+}
+
+header ul li a:hover{
+    color:#c51260;
+    background-color: transparent!important;
+}
+
+header .nav-logo{}
 
 /* ======INDEX======= */
+
+h2 span{
+    display: block;
+}
+
+h2 span.votre{
+    font-size: 2.625em;
+    color:#da1c5c;
+    line-height: 55px;
+}
+
+h2 span.mariage{
+    font-size: 2.250em;
+}
+
+h2 span.guadeloupe{
+    font-size: 1.438em;
+    color:#da1c5c;
+}
+
+#main-content button{
+    border: 1px solid #c51260;
+    color: #c51260;
+    background-color: transparent;
+    font-size: 1.7em;
+    padding: 5px 35px;
+    margin-top: 25px;
+}
+
+#main-content button:hover{
+    background-color: #c51260;
+    color:#fff;
+}
+
+main section{
+    display: inline-block;
+    vertical-align: top;
+}
+
+section div{
+    background-color: rgba(255,255,255,0.7);
+    width:95%;
+    min-height: 400px;
+    margin:  auto;
+    margin-top: 20px;
+}
+
+section.index-plus{
+    background-image: url('../images/index-plus.jpg');
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 440px;
+}
+
+section.index-plus span, section.prestation span{display: block;}
+
+section.index-plus span.index-en, section.prestation span.index-en{
+font-size: 8.286em;
+color: #c51260;
+line-height: 70px;
+}
+
+section.index-plus p, section.prestation p{
+    padding-left: 20px;
+    padding-top:100px;
+}
+
+section.index-plus span.savoir-plus, section.prestation span.savoir-plus{
+    font-size: 3.571em;
+    color:#c51260;
+    line-height: 50px;
+    padding-left: 30px;
+}
+
+section.index-plus span.guadeloupe{
+    font-size: 3.143em;
+    color: #c51260;
+    line-height: 35px;
+    padding-left: 50px;
+}
+
+section.date{
+background-color: #c51e62;
+min-height: 440px;
+}
+
+section.date p{
+    margin-top:45px;
+}
+
+section.date span{
+    display: block;
+    color: #fff;
+}
+
+section.date span.depuis{font-size: 2.929em; line-height: 25px;}
+section.date span.date-2009{font-size:1.643em; margin-left: 60px;}
+section.date span.event{font-size:1.429em; text-transform: uppercase;}
+section.date span.nb-77{font-size:19.500em; line-height: 200px; margin-left: -80px;}
+section.date span a{font-size: 1.429em; color:#fff;margin-top: 35px;display:block; padding-left: 40px;}
+
+section.prestation{
+    background-image: url('../images/index-prestation.jpg');
+    background-repeat: no-repeat;
+    min-height: 440px;
+}
+
+section.prestation button{
+    margin-left: 100px;
+}
 
     /* ----slider---- */
     /* ----zone de pictos---- */
     /* ----Organisons votre mariage---- */
     /* ----zone de réalisations---- */
+
+section.qui-sommes-nous h2{
+    background: url('../images/tache.png') 50% 100%;
+    background-repeat: no-repeat;
+}
+
+section.qui-sommes-nous p{
+    float: none;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+section.qui-sommes-nous p button{
+    display: block;
+    margin: 0 auto;
+}
+
+section.qui-sommes-nous span.qui{font-size: 4.143em; color:#000;}
+section.qui-sommes-nous span.sommes-nous{font-size: 3.357em; color:#c51260; line-height: 20px;  padding-left: 200px;}
+
+section.ceremonie{
+    background: url('../images/index-ceremonie.jpg') no-repeat;
+    min-height: 517px;
+}
+
+section.ceremonie div{min-height: 470px; margin-top: 25px;}
+section.ceremonie span{display:block;}
+section.ceremonie p {padding-top: 150px;margin-right: 30px;}
+section.ceremonie span.votre{font-size: 4.857em; color:#c51260; margin-right: 120px;line-height: 50px;}
+section.ceremonie span.ceremonie{font-size: 2.500em; color:#c51260; text-transform: uppercase;}
+section.ceremonie span.plage{font-size: 2.929em; color:#c51260; text-align: right; margin-right: 150px;line-height: 10px;}
+section.ceremonie span.n-1{font-size: 11.786em; color:#c51260;text-align: right;margin-right: 80px; line-height:10px;}
+
+section.conciergerie{background-color: #ba2c75; min-height: 517px; color:#fff;}
+section.conciergerie div{
+    min-height: 470px;
+    margin-top: 25px;
+    background: none;
+    border: 1px solid #fff;
+}
+section.conciergerie span{display: block;}
+section.conciergerie p{margin-top: 100px;}
+section.conciergerie span.la{font-size: 5.125em;}
+section.conciergerie span.conciergerie{font-size: 2.313em; border-top:2px solid #fff; border-bottom: 2px solid #fff; width:50%; margin: 0 auto; text-transform: uppercase;}
+section.conciergerie span.prestations{font-size: 2.375em; margin-right: 65px;}
+section.conciergerie span.n-2{font-size: 10.875em; line-height: 60px;margin-left: 180px }
+
+section.christina{
+    background: url('../images/index-christina.jpg') no-repeat 0 0;
+    background-size: cover;
+    min-height: 416px;
+}
+
+section.christina h2.christina{font-size: 3.500em; color: #c51260;}
+section.christina div{min-height: 375px; padding: 15px; width:98%;}
+section.christina span.fondatrice{font-size: 1.550em; color: #c51260;}
+section.christina span.wedding{font-size: 2.188em; color: #c51260; line-height: 44px;}
+section.christina h3 span{color: #c51260; display: block;}
+section.christina h3{margin-top: 50px;}
+
+section.equipe span{display: block; text-align:center;}
+section.equipe p{margin-top: 100px;}
+section.equipe span.equipe{font-size: 3.563em; text-transform: uppercase;}
+section.equipe span.pour-vous{font-size:4.063em; line-height: 0;color:#c51260;}
+section.equipe span.accompagner{font-size: 2.563em; margin-right: 80px; line-height: 80px;}
+section.equipe span.n-3{font-size: 10.875em; line-height: 40px; margin-left: 90px;}
+
+section.equipe{
+    background-color: #f6f6f6;
+    min-height: 416px;
+}
+
+section.realisation{padding: 0; margin-top: 10px;}
+section.realisation div.slide-01{background: url('../images/index-slider-01.jpg'); background-size:cover;}
+section.realisation div.slide-02{background: url('../images/index-slider-01.jpg'); background-size:cover;}
+section.realisation div.slide-03{background: url('../images/index-slider-01.jpg'); background-size:cover;}
+section.realisation div.btn-slide{background-color: transparent; display: none;}
+section.realisation .swiper-slide{min-height: 459px;}
+section.realisation div{min-height: 420px;}
+
+section.realisation h4.maries{text-transform: uppercase; font-size: 2.000em; color: #c51260;}
+section.realisation p.infos{font-size: 1.625em; color:#231f20;}
+section.realisation p span.tarif{font-size: 1.500em; color:#c51260;}
+section.realisation section.infos-maries{margin-top: 150px;}
+
+section.creation{background-color: #c51e62; min-height: 459px;}
+section.creation h2{color:#fff; margin-top: 130px;}
+section.creation span.quelques{font-size: 2.113em; text-transform: uppercase;}
+section.creation span.unes{font-size: 2.875em;line-height: 50px; margin-right: 180px;}
+section.creation span.creations{font-size: 1.325em; line-height: 0px; text-align: right; margin-right: 50px; margin-top: -7px;}
+section.creation span.n-4{font-size: 5.875em; text-align: right; margin-right: 50px; margin-top: 10px;}
 
 .swiper-container{
     min-height: 300px;
@@ -42,6 +337,37 @@ header .nav-logo{text-align:center;}
 }
 
 /* ======AGENCE======= */
+
+section.agence   h2 {
+    background: url('../images/tache.png') 0% 100%;
+    background-repeat: no-repeat;
+}
+
+section.agence p{margin:0; margin-top: 50px; font-size: 1.225em;}
+section.agence p button{margin:0;}
+section.agence span.sommes-nous{padding-left: 0;}
+
+section.agence section.equipe p.title{background: url('../images/agence-tache.png')  no-repeat 50% 100%; margin-bottom: 100px; margin-top: 50px;}
+section.agence section.equipe p{color:#c51260;}
+section.agence section.equipe span.equipe{font-size: 5.625em;}
+section.agence section.equipe span.pour-vous{font-size:6.375em; line-height: 0;}
+section.agence section.equipe span.accompagner{font-size: 4.063em; margin-left:270px; line-height: 120px;}
+
+section.agence section.portrait-christina{background: url('../images/agence-christina.jpg'); min-height: 315px; margin-bottom: 0;}
+#agence section.equipe{background-color: transparent;}
+#agence section.christina{background:none;background-color: #c51260; min-height: 350px; margin-top: 0;}
+#agence section.christina span{color:#fff; text-align: left;}
+#agence section.christina h2{background: none;color: #fff;}
+
+#agence section.presentation-christina p{font-size: 1.225em; color:#231f20; line-height: 30px;}
+        section.presentation-christina{min-height: 350px; background-color: #f6f6f6; margin-top: 0;}
+#agence section.equipe-laure{background-color: #c51260; min-height: 283px;}
+#agence section.equipe-laure div, #agence section.equipe-pascal div{min-height: 240px;}
+#agence section.equipe-pascal{background: url('../images/agence-pascal.jpg') no-repeat; min-height: 283px;}
+#agence section.equipe-laure h3, #agence section.equipe-pascal h3{font-size: 3.063em; color:#c51260; padding-top: 50px;}
+#agence section.equipe-laure h4, #agence section.equipe-pascal h4{font-size: 1.563em; color:#fff;}
+
+#agence section.equipe-pascal h4{color: #c51260;}
 
     /* ----Qui sommes nous---- */
 

@@ -7,28 +7,30 @@
     <link rel="stylesheet" href="{{url('assets/css/slider/swiper.min.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/gallery/lightbox.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/normalize.css')}}">
 </head>
 
 <body>
 <header id="header">
+    <div class="bar-top"></div>
     <div class="wrapper">
-        <h1 class="nav-logo">Logo</h1>
+        <h1 class="nav-logo"><img src="{{url('assets/images/logo.png')}}" alt=""/></h1>
         @include('partials.nav')
     </div>
 </header>
 
-<section id="main-content">
+<section id="main-content" class="wrapper">
     @yield('content')
 </section>
 
-<footer id="footer">
+{{--<footer id="footer">--}}
     {{--<p>Copyright © ...</p>--}}
     {{--<ul>--}}
         {{--<li>Facebook</li>--}}
         {{--<li>Twitter</li>--}}
         {{--<li>Instagram</li>--}}
     {{--</ul>--}}
-</footer>
+{{--</footer>--}}
 
 <script src="{{url('js/lib/jquery.min.js')}}"></script>
 <script src="{{url('js/lib/clipboard.min.js')}}"></script>
