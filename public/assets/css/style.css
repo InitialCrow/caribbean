@@ -170,10 +170,10 @@ main section{
     vertical-align: top;
 }
 
-section div{
+#index section div, #agence section div{
     background-color: rgba(255,255,255,0.7);
     width:95%;
-    min-height: 400px;
+    /*min-height: 400px;*/
     margin:  auto;
     margin-top: 20px;
 }
@@ -247,8 +247,8 @@ section.prestation button{
     /* ----Organisons votre mariage---- */
     /* ----zone de réalisations---- */
 
-section.qui-sommes-nous h2{
-    background: url('../images/tache.png') 50% 100%;
+section.qui-sommes-nous h2, #formule h2{
+    background: url('../images/tache.png') 0% 100%;
     background-repeat: no-repeat;
 }
 
@@ -286,12 +286,14 @@ section.conciergerie div{
     background: none;
     border: 1px solid #fff;
 }
+
+#index section.conciergerie div{background-color: transparent;}
 section.conciergerie span{display: block;}
 section.conciergerie p{margin-top: 100px;}
 section.conciergerie span.la{font-size: 5.125em;}
 section.conciergerie span.conciergerie{font-size: 2.313em; border-top:2px solid #fff; border-bottom: 2px solid #fff; width:50%; margin: 0 auto; text-transform: uppercase;}
 section.conciergerie span.prestations{font-size: 2.375em; margin-right: 65px;}
-section.conciergerie span.n-2{font-size: 10.875em; line-height: 60px;margin-left: 180px }
+section.conciergerie span.n-2{font-size: 10.875em; line-height: 60px;margin-left: 180px;}
 
 section.christina{
     background: url('../images/index-christina.jpg') no-repeat 0 0;
@@ -315,7 +317,7 @@ section.equipe span.n-3{font-size: 10.875em; line-height: 40px; margin-left: 90p
 
 section.equipe{
     background-color: #f6f6f6;
-    min-height: 416px;
+    min-height: 420px;
 }
 
 section.realisation{padding: 0; margin-top: 10px;}
@@ -335,7 +337,7 @@ section.creation{background-color: #c51e62; min-height: 459px;}
 section.creation h2{color:#fff; margin-top: 130px;}
 section.creation span.quelques{font-size: 2.113em; text-transform: uppercase;}
 section.creation span.unes{font-size: 2.875em;line-height: 50px; margin-right: 180px;}
-section.creation span.creations{font-size: 1.325em; line-height: 0px; text-align: right; margin-right: 50px; margin-top: -7px;}
+section.creation span.creations{font-size: 1.325em; line-height: 0; text-align: right; margin-right: 50px; margin-top: -7px;}
 section.creation span.n-4{font-size: 5.875em; text-align: right; margin-right: 50px; margin-top: 10px;}
 
 .swiper-container{
@@ -381,6 +383,35 @@ section.agence section.portrait-christina{background: url('../images/agence-chri
     /* ----Qui sommes nous---- */
 
 /* ======PRESTATIONS======= */
+
+/*#formule section.formule p{background: url('../images/tache.png') no-repeat 0 100%; width: 50%; margin:0 auto;}*/
+#formule section.formule span{display:block;}
+#formule section.formule span.nos{font-size: 3.25em; color:#da1c5c;}
+#formule section.formule span.prestations{font-size:2.45em; text-transform: uppercase;line-height: 30px;}
+#formule section.formule div.pack{width: 80%; text-align: center; color:#fff; padding:25px 0; margin-bottom: 50px;}
+#formule section.formule div.formule-01{background-color: #c51260;}
+#formule section.formule div.formule-02{background-color: #d91c5c;}
+#formule section.formule div.formule-03{background-color: #bb2d76;}
+#formule section.formule div.formule-04{background-color: #da1878;}
+#formule section.formule span.formule{font-size: 1.9em;}
+#formule section.formule span.name{font-size:2em;}
+#formule section.formule button{ border: 1px solid #fff; margin-bottom: 15px; background-color: #fff; color:#c51260;}
+
+#formule section.formule div.pack div{width: 90%; border:1px solid #fff; margin: 0 auto;}
+#formule section.formule div.pack p{background: none; width:100%;}
+
+#formule section.engagement span.notre, #formule section.fonctionnement span.notre{font-size: 3.875em; color: #c51260;}
+#formule section.engagement span.engagement, #formule section.fonctionnement span.fonctionnement{font-size: 2.438em; line-height: 20px;}
+#formule section.engagement h3{background: url("../images/tache.png") no-repeat 0 100%; margin-bottom: 50px;}
+#formule section.fonctionnement h3{background: url("../images/formule-tache-fonctionnement.png") no-repeat 100% 100%; margin-bottom: 50px;}
+#formule section.engagement p, #formule section.fonctionnement p{margin: 0; line-height: 30px; font-size: 1.313em; width: 75%;}
+#formule section.fonctionnement div.txt-right p{display:inline-block;}
+
+#formule section.fonctionnement div.txt-right{text-align: right; width: 100%;}
+#formule section.fonctionnement button{border: 1px solid #c51260;}
+#formule section.fonctionnement .pink{color:#c51260;}
+#formule section.fonctionnement .border, #formule section.engagement .border{border: 1px solid #c51260; width:30%; display:inline-block;}
+
 
     /* ----Alpinia---- */
     /* ----Allamande---- */
