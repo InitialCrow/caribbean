@@ -90,7 +90,6 @@ body{
 .center{text-align: center}
 .margin-bottom-50{margin-bottom: 50px;}
 
-section{margin:50px 0;}
 /* ======HEADER======= */
 
 header .bar-top{
@@ -121,6 +120,16 @@ header ul li a:hover{
 
 header .nav-logo{}
 
+.cap{
+    text-transform: uppercase;
+    display: inline;
+}
+.date{
+    margin-left: 12px;
+    color : #df81a2;
+    display: inline;
+
+}
 /* ======INDEX======= */
 
 h2 span{
@@ -381,7 +390,43 @@ section.agence section.portrait-christina{background: url('../images/agence-chri
 
 
 /* ======LIVRE======= */
+.temoignage {
+    padding-bottom: 25px;
+    padding-top: 25px;
+    border-bottom: 2px solid #c5487b;
+}
 
+#main-content .temoignage button {
+    font-size: 2.4em;
+    margin-top : 40px;
+}
+.temoignage .right{
+    text-align: right;
+}
+.temoignage h1{
+    line-height: 0.8em;
+    text-align:center; 
+    font-size: 6.8em;
+}
+.temoignage p{
+    padding-bottom: 20px;
+}
+.temoignage h2{
+    color : #c61e5c;
+
+}
+.temoignage h1 span{
+    margin-left: 30%;
+    color:  #d91c5c;
+    font-size: 1.0em;
+}
+.temoignage h2 {
+    display: inline;
+    line-height: 2;
+}
+.under{
+    display:block;
+}
 
 /* ======CONCIERGERIE======= */
 
