@@ -68,7 +68,7 @@ class AdminController extends Controller
 		
 			}
 			else{
-				return view('admin.dashboard', compact(['admin','gallery','todoListConvert','contentBlogs', 'adminToken','comments']));
+				return view('admin.dashboard', compact(['admin','gallery','todoListConvert','contentBlogs', 'adminToken','comments','guests']));
 			}
 		}
 		else{

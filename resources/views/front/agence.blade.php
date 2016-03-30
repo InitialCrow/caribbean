@@ -5,7 +5,7 @@
     <section id="agence">
     <section class="agence">
         <section class="qui-sommes-nous col-md-12">
-            <h2 class=""><span class="qui didotLTStd-Bold">Qui</span> <span class="sommes-nous edwardianScriptITC">sommes nous ?</span></h2>
+            <h2 class=""><span class="qui didotLTStd-Bold under">Qui</span> <span class="sommes-nous edwardianScriptITC under">sommes nous ?</span></h2>
             <p class=" futuraStd-Light col-md-6">Caribbean Planner est une agence connue et saluée par les partenaires
                 dans le secteur de la planification d’évènements privées en Guadeloupe.
                 L’agence organise des évènements remplis de bonheur, de joie et d’amour
@@ -13,12 +13,12 @@
 
                 Notre objectif est de créer des souvenirs indélébiles pour toutes les personnes voyageant
                 pour l’occasion mais surtout pour le couple qui s’unira sur une île paradisiaque.
-                <button class="edwardianScriptITC">Lire la suite</button>
+                <button class="didotLTStd-Light">Lire la suite</button>
             </p>
         </section>
 
         <section class="col-md-12 equipe">
-            <p class="title"><span class="didotLTStd-Bold equipe">L'Equipe</span> <span class="didotLTStd-Bold pour-vous">pour vous</span> <span class="edwardianScriptITC accompagner">accompagner</span></p>
+            <p class="title center"><span class="didotLTStd-Bold equipe under">L'Equipe</span> <span class="didotLTStd-Bold pour-vous under">pour vous</span> <span class="edwardianScriptITC accompagner under">accompagner</span></p>
             <section class="col-md-12 portrait-christina"></section>
             <section class="col-md-4 christina">
                 <h2 class="didotLTStd-Bold christina">Christina</h2>
@@ -39,7 +39,7 @@
                     <h4 class="didotLTStd-Bold center">Responsable relation partenaires / <br/>Concierge</h4>
                 </div>
             </section>
-            <section class="col-md-6 equipe-pascal">
+            <section class="col-md-6 equipe-pascal margin-top-50">
                 <div>
                     <h3 class="didotLTStd-Bold center">Pascale</h3>
                     <h4 class="didotLTStd-Bold center">Chef de projet décoration</h4>

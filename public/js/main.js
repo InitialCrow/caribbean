@@ -9,6 +9,18 @@ $(document).ready(function(){
 	clipBoard();
 	saveFile('.file');
 
+    $(function () {
+        $('.popup-modal').magnificPopup({
+            type: 'inline',
+            focus: '#anthurium',
+            modal: true
+        });
+        $(document).on('click', '.popup-modal-dismiss', function (e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
+    });
+
 });
 
 
@@ -103,12 +115,6 @@ function addAdmin(){
 		
 		$form.removeClass('hidden_add_admin');
 	});
-
-
 }
-
-
-
-
 
 

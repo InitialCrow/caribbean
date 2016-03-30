@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="{{url('assets/css/gallery/lightbox.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/normalize.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/magnific-popup.css')}}">
 </head>
 
 <body>
-<header id="header">
+<header id="header" class="navbar navbar-fixed-top">
     <div class="bar-top"></div>
     <div class="wrapper">
         <h1 class="nav-logo"><img src="{{url('assets/images/logo.png')}}" alt=""/></h1>
@@ -38,6 +39,8 @@
 <script src="{{url('js/lib/gallery/lightbox.js')}}"></script>
 <script src="{{url('js/lib/jquery.countdown.js')}}"></script>
 <script src="{{url('js/main.js')}}"></script>
+<script src="{{url('js/lib/jquery.magnific-popup.js')}}"></script>
+
 
 </body>
 </html>

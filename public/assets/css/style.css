@@ -78,7 +78,7 @@ body{
     width: 100%;
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 10px;
 }
 
 .wrapper{
@@ -89,52 +89,33 @@ body{
 
 .center{text-align: center}
 .margin-bottom-50{margin-bottom: 50px;}
+.margin-top-50{margin-top: 50px;}
+.under{display:block;}
 
 /* ======HEADER======= */
-
-header .bar-top{
-    background-color: #c51e62;
-    height: 25px;
+header{
+    background-color: #fff;
+    -moz-box-shadow: 0px 3px 2px 0px #eee;
+    -webkit-box-shadow: 0px 3px 2px 0px #eee;
+    -o-box-shadow: 0px 3px 2px 0px #eee;
+    box-shadow: 0px 3px 2px 0px #eee;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#eee, Direction=180, Strength=2);
 }
-
-header ul{
-    text-align: right;
-}
-
-header ul li{
-    display: inline-block!important;
-    text-transform: uppercase;
-}
-
+header .bar-top{background-color: #c51e62;height: 25px;  }
+header ul{text-align: right;  }
+header ul li{display: inline-block!important;text-transform: uppercase;  }
 header nav ul li a{
     color:#231f20;
     border-right: 1px solid #c51260;
     padding: 0 15px!important;
     font-size: 1em;
 }
-
 header ul li a:hover{
     color:#c51260;
     background-color: transparent!important;
 }
 
-header .nav-logo{}
-
-.cap{
-    text-transform: uppercase;
-    display: inline;
-}
-.date{
-    margin-left: 12px;
-    color : #df81a2;
-    display: inline;
-
-}
 /* ======INDEX======= */
-
-h2 span{
-    display: block;
-}
 
 h2 span.votre{
     font-size: 2.625em;
@@ -151,18 +132,40 @@ h2 span.guadeloupe{
     color:#da1c5c;
 }
 
+header .navbar{min-height: 0;}
+
+#main-content{margin-top: 200px;}
+
 #main-content button{
     border: 1px solid #c51260;
-    color: #c51260;
-    background-color: transparent;
-    font-size: 1.7em;
+    color: #fff;
+    background-color: #c51260;
+    font-size: 1.2em;
     padding: 5px 35px;
-    margin-top: 25px;
+    margin-top: 10px;
+    position: relative;
 }
 
-#main-content button:hover{
-    background-color: #c51260;
-    color:#fff;
+#main-content button:after {
+    content: '';
+    border: 1px solid #c51260;
+    top: 7px;
+    left: 7px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: #f2f2f2;
+    white-space:nowrap;
+}
+
+#formule section.formule .pack button{
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #c51260;
+}
+
+#formule section.formule .pack button:after{
+    border: 1px solid #fff;
 }
 
 main section{
@@ -172,12 +175,14 @@ main section{
 
 #index section div, #agence section div{
     background-color: rgba(255,255,255,0.7);
-    width:95%;
+    width:100%;
     /*min-height: 400px;*/
     margin:  auto;
     margin-top: 20px;
 }
 
+#index section.index-plus div{padding-bottom: 65px;}
+#index section.prestation div{padding-bottom: 100px;}
 section.index-plus{
     background-image: url('../images/index-plus.jpg');
     background-repeat: no-repeat;
@@ -238,7 +243,7 @@ section.prestation{
     min-height: 440px;
 }
 
-section.prestation button{
+section.prestation button, section.index-plus button{
     margin-left: 100px;
 }
 
@@ -263,6 +268,7 @@ section.qui-sommes-nous p button{
     margin: 0 auto;
 }
 
+#index section.qui-sommes-nous h2{background: url('../images/tache.png') 50% 100% no-repeat;}
 section.qui-sommes-nous span.qui{font-size: 4.143em; color:#000;}
 section.qui-sommes-nous span.sommes-nous{font-size: 3.357em; color:#c51260; line-height: 20px;  padding-left: 200px;}
 
@@ -299,26 +305,23 @@ section.christina{
     background: url('../images/index-christina.jpg') no-repeat 0 0;
     background-size: cover;
     min-height: 416px;
+    position: relative;
 }
 
+#index section.christina div{padding: 15px; width:50%; margin: 0; bottom: 15px; position:absolute;}
 section.christina h2.christina{font-size: 3.500em; color: #c51260;}
-section.christina div{min-height: 375px; padding: 15px; width:98%;}
 section.christina span.fondatrice{font-size: 1.550em; color: #c51260;}
 section.christina span.wedding{font-size: 2.188em; color: #c51260; line-height: 44px;}
 section.christina h3 span{color: #c51260; display: block;}
-section.christina h3{margin-top: 50px;}
+/*section.christina h3{margin-top: 50px;}*/
 
-section.equipe span{display: block; text-align:center;}
-section.equipe p{margin-top: 100px;}
+section.equipe p{padding-top: 50px;}
 section.equipe span.equipe{font-size: 3.563em; text-transform: uppercase;}
 section.equipe span.pour-vous{font-size:4.063em; line-height: 0;color:#c51260;}
-section.equipe span.accompagner{font-size: 2.563em; margin-right: 80px; line-height: 80px;}
-section.equipe span.n-3{font-size: 10.875em; line-height: 40px; margin-left: 90px;}
+section.equipe span.accompagner{font-size: 2.563em; margin-right: 80px; line-height: 40px;}
+section.equipe span.n-3{font-size: 10.875em; line-height: 80px; margin-left: 160px;}
 
-section.equipe{
-    background-color: #f6f6f6;
-    min-height: 420px;
-}
+section.equipe{background-color: #f6f6f6; min-height: 420px;}
 
 section.realisation{padding: 0; margin-top: 10px;}
 section.realisation div.slide-01{background: url('../images/index-slider-01.jpg'); background-size:cover;}
@@ -326,12 +329,12 @@ section.realisation div.slide-02{background: url('../images/index-slider-01.jpg'
 section.realisation div.slide-03{background: url('../images/index-slider-01.jpg'); background-size:cover;}
 section.realisation div.btn-slide{background-color: transparent; display: none;}
 section.realisation .swiper-slide{min-height: 459px;}
-section.realisation div{min-height: 420px;}
+#index section.realisation div{min-height: 420px;}
 
 section.realisation h4.maries{text-transform: uppercase; font-size: 2.000em; color: #c51260;}
 section.realisation p.infos{font-size: 1.625em; color:#231f20;}
 section.realisation p span.tarif{font-size: 1.500em; color:#c51260;}
-section.realisation section.infos-maries{margin-top: 150px;}
+section.realisation section.infos-maries{padding-top: 150px;}
 
 section.creation{background-color: #c51e62; min-height: 459px;}
 section.creation h2{color:#fff; margin-top: 130px;}
@@ -349,12 +352,9 @@ section.creation span.n-4{font-size: 5.875em; text-align: right; margin-right: 5
 
 /* ======AGENCE======= */
 
-section.agence   h2 {
-    background: url('../images/tache.png') 0% 100%;
-    background-repeat: no-repeat;
-}
-
-section.agence p{margin:0; margin-top: 50px; font-size: 1.225em;}
+section.agence  h2 {background: url('../images/tache.png') 0% 100%; background-repeat: no-repeat;}
+section.agence section.qui-sommes-nous p {padding-top: 50px;}
+section.agence p{margin:0; font-size: 1.225em;}
 section.agence p button{margin:0;}
 section.agence span.sommes-nous{padding-left: 0;}
 
@@ -395,71 +395,74 @@ section.agence section.portrait-christina{background: url('../images/agence-chri
 #formule section.formule div.formule-04{background-color: #da1878;}
 #formule section.formule span.formule{font-size: 1.9em;}
 #formule section.formule span.name{font-size:2em;}
-#formule section.formule button{ border: 1px solid #fff; margin-bottom: 15px; background-color: #fff; color:#c51260;}
+/*#formule section.formule button{ border: 1px solid #fff; margin-bottom: 15px; background-color: #fff; color:#c51260;}*/
 
-#formule section.formule div.pack div{width: 90%; border:1px solid #fff; margin: 0 auto;}
+#formule section.formule div.pack div{width: 90%; border:1px solid #fff; margin: 0 auto; padding: 20px 0;}
 #formule section.formule div.pack p{background: none; width:100%;}
 
 #formule section.engagement span.notre, #formule section.fonctionnement span.notre{font-size: 3.875em; color: #c51260;}
 #formule section.engagement span.engagement, #formule section.fonctionnement span.fonctionnement{font-size: 2.438em; line-height: 20px;}
 #formule section.engagement h3{background: url("../images/tache.png") no-repeat 0 100%; margin-bottom: 50px;}
 #formule section.fonctionnement h3{background: url("../images/formule-tache-fonctionnement.png") no-repeat 100% 100%; margin-bottom: 50px;}
-#formule section.engagement p, #formule section.fonctionnement p{margin: 0; line-height: 30px; font-size: 1.313em; width: 75%;}
+#formule section.engagement p, #formule section.fonctionnement p{text-align:justify;margin: 0; line-height: 30px; font-size: 1.313em; width: 75%;}
 #formule section.fonctionnement div.txt-right p{display:inline-block;}
 
+
 #formule section.fonctionnement div.txt-right{text-align: right; width: 100%;}
+/*#formule section.fonctionnement p{text-align: justify;}*/
 #formule section.fonctionnement button{border: 1px solid #c51260;}
 #formule section.fonctionnement .pink{color:#c51260;}
 #formule section.fonctionnement .border, #formule section.engagement .border{border: 1px solid #c51260; width:30%; display:inline-block;}
 
+section.popin .border-formule{height: 15px;background-color: #c61e5c;}
+section.popin {min-height: 400px;}
+section.popin span.close {background: url('../images/formule-close.png') no-repeat 100% 100%; height: 30px; width: 100%;}
+section.popinh2{background: url('../images/tache.png') no-repeat 50% 100%;}
+section.popin h2 span.formule{font-size: 3em; color: #c51260;}
+section.popin h2 span.anthurium, section.popin h2 span.alpinia, section.popin h2 span.hibiscus, section.popin h2 span.allamanda{font-size: 2em; text-transform: uppercase; line-height: 20px;}
+section.popin h4.sous-titre-pop{font-size: 1.3em; text-transform: uppercase; color:#c51260; line-height: 50px;}
+section.popin span.accroche{font-size: 1.3em; color:#c51260;}
+section.popin .forfait h3{color:#c51260;}
+section.wrapper-popin{width: 960px; margin: 0 auto;}
 
+
+
+.mfp-bg{ background: rgb(246, 246, 246)!important; opacity:0.9; z-index: 999;!important;}
+section.info-formule{background-color: #fff; padding: 20px; min-height: 600px;}
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 20px;
+    width: auto;
+    max-width: 500px;
+    margin: 20px auto;
+}
     /* ----Alpinia---- */
     /* ----Allamande---- */
     /* ----Rose de porcelaine---- */
 
 /* ======REALISATIONS======= */
 
+section.realisation .hover{visibility: hidden; position:absolute; z-index: 99;}
+section.realisation .hover:hover{position:absolute;min-height: 150px;}
+section.realisation div.photo{margin: 25px 0;}
 
 /* ======LIVRE======= */
-.temoignage {
-    padding-bottom: 25px;
-    padding-top: 25px;
-    border-bottom: 2px solid #c5487b;
-}
 
-#main-content .temoignage button {
-    font-size: 2.4em;
-    margin-top : 40px;
-}
-.temoignage .right{
-    text-align: right;
-}
-.temoignage h1{
-    line-height: 0.8em;
-    text-align:center; 
-    font-size: 6.8em;
-}
-.temoignage p{
-    padding-bottom: 20px;
-}
-.temoignage h2{
-    color : #c61e5c;
+#livre .cap{text-transform: uppercase; display: inline;}
+#livre .date{margin-left: 12px; color : #df81a2; display: inline; font-size: 1.5em;}
+.temoignage {padding-bottom: 25px; padding-top: 25px; border-bottom: 2px solid #c5487b;}
 
-}
-.temoignage h1 span{
-    margin-left: 30%;
-    color:  #d91c5c;
-    font-size: 1.0em;
-}
-.temoignage h2 {
-    display: inline;
-    line-height: 2;
-}
-.under{
-    display:block;
-}
+#main-content .temoignage button {font-size: 1.3em;  margin-top : 40px;}
+.temoignage .right{text-align: right;}
+.temoignage h1{line-height: 65px; text-align:center; font-size: 6.8em; background: url('../images/livre-tache.png') no-repeat 50% 100%;}
+.temoignage p{padding-bottom: 20px; font-size: 1.3em;}
 
-/* ======CONCIERGERIE======= */
+.temoignage h2{color : #c61e5c;}
+.temoignage h1 span{margin-left: 30%;color:  #d91c5c; font-size: 1.0em;}
+.temoignage h2 {display: inline;line-height: 2;}
+.temoignage:last-of-type{border:none;}
+
 
 
 /* ======EVENT_SUPERADMIN======= */
@@ -472,26 +475,13 @@ table{
 
 /* ======EVENT_ADMIN======= */
 
-.gallery ul{
-    width: 100%;
-}
+h2.name{font-size: 2em; color: #c51260;}
 
-.gallery ul li{
-    display: inline-block;
-    width: 30%;
-}
-
-.gallery ul li p{
-    width: 100%;
-}
-
-.gallery ul li img{
-    width: 100%;
-}
-
-.copy-clip{
-    width: 20px;
-}
+.gallery ul{width: 100%;}
+.gallery ul li{display: inline-block;width: 30%;}
+.gallery ul li p{width: 100%;}
+.gallery ul li img{width: 100%;}
+.copy-clip{width: 20px;}
 
 .comment li h3, .comment li p{display: inline;}
 .comment li p img{display:block;}
@@ -499,6 +489,21 @@ table{
 .comment li input{float:right; margin: 5px;}
 
 /* ======EVENT======= */
+
+section.evenement h1{line-height: 65px; width:50%; margin: 0 auto; font-size: 5.8em; background: url('../images/livre-tache.png') no-repeat 50% 100%;}
+section.evenement span.event{text-transform: uppercase;}
+section.evenement span.mon{color:#c51260;}
+section.evenement section.event label.id{font-size: 1.5em;}
+section.evenement section.event input{width: 50%; border: 1px solid #c51260;}
+section.evenement section.event button.connect{margin: 0 auto;}
+section.evenement section.event .connect{text-align: center;}
+section.evenement section.event .forget{color:#c51260; font-size: 2em; text-decoration: underline;}
+section.evenement section.event .forget:hover{color:#000;}
+section.evenement div.img-couple{background: url('../images/event-id.jpg') no-repeat 50% 100%; min-height: 272px;}
+section.evenement section.info{border-right: 2px solid #c51260; height: 100%;}
+section.evenement section.info .pink{color: #c51260;}
+section.evenement section.info h2 span.nouvelle{color: #c51260; font-size: 1.200em;}
+section.evenement section.info h2 span.votre-page{font-size: 1.100em; text-transform: uppercase; margin-left: 15px;}
 
 section.event{
     display: inline-block;
@@ -510,6 +515,15 @@ section.event{
 }
 
 /* ======CONTACT======= */
+
+section.contact h1{line-height: 65px; width:50%; margin: 0 auto; font-size: 5.8em; background: url('../images/livre-tache.png') no-repeat 50% 100%;}
+section.contact span.event{text-transform: uppercase;}
+section.contact span.mon{color:#c51260;}
+section.contact h4{color:#c51260; text-transform: uppercase;}
+section.contact input, section.contact textarea{margin: 20px 0; border: 1px solid #c51260; padding: 5px;}
+section.contact section.info{border-right: 2px solid #c51260; height: 100%;}
+section.contact form{text-align: center;}
+section.contact div.connect input, section.contact div.connect textarea, section.contact button{margin:10px auto; width: 50%;}
 
 
 /* ======FOOTER======= */

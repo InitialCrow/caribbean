@@ -4,7 +4,7 @@
 @parent
 <div class="wrapper">
 
-	<h2 class="center"> {{$admin->name}}</h2>
+	<h2 class="center edwardianScriptITC name"> {{$admin->name}}</h2>
 
 	<section class="delay center margin-bottom-50 ">
 
