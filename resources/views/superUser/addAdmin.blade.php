@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label for="">envoyée des fichiers aux mariées</label>     
-                    <input  type="file" name="file"/>
+                    <input  type="file" name="files[]" multiple/>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
                 {{@csrf_field()}}

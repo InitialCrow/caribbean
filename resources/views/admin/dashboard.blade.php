@@ -34,7 +34,7 @@
 				@empty
 				<p>Il n'y a pas encore d'images dans la gallerie!</p>
 				@endforelse
-				<input type="file" name="gallery_image" size="40">
+				<input type="file" name="gallery_image[]" size="40"  multiple>
 			</ul>
 		</section>
 		<section class="planning  col-md-6">

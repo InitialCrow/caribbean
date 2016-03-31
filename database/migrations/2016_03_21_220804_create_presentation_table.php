@@ -15,7 +15,7 @@ class CreatePresentationTable extends Migration
         Schema::create('presentations', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('admin_id')->unsigned();
-                $table->string('text',50);    
+                $table->string('text',500);    
                 $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');                   
         });
     }

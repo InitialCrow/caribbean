@@ -19,15 +19,6 @@
                 </tr>
             </thead>
             <tbody>
-             <tr class='hidden_add_admin add_admin_form'>
-                        <form  action="{{url('superUser/add-admin')}}" method="post" enctype="multipart/form-data">
-                            <td><input type="text" name="login" id="log" value="" tabindex="1" /></td>
-                            <td><input type="text" name="name" id="name" value="" tabindex="1" /></td>
-                            <td><input class="file" type="file" name="file"/></td>
-                            <td><input type="submit" value="Enregistrer" /></td>
-                            {{@csrf_field()}}
-                        </form>
-            </tr>
             @forelse($admins as $admin)
                 <tr class="admin">
                         <td>{{$admin->login}}</td>
@@ -43,7 +34,7 @@
                         
                         <td>
                                 <form class ="saveFile" action="{{url('superUser/save-file', $admin->id)}}" enctype="multipart/form-data" method="post">
-                                    <input class="file" type="file" name="file"/>
+                                    <input class="file" type="file" name="files[]" multiple/>
 
                                     {{csrf_field()}}
                                 </form>
