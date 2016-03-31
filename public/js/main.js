@@ -47,7 +47,7 @@ function countDown(){
 		
 		$started.countdown($timer, function(event) {
 			$(this).text(
-				event.strftime('%D days %H heures :%M minutes :%S secondes')
+				event.strftime('%D days %H heures %M minutes %S secondes')
 			);
 		});
 	}
