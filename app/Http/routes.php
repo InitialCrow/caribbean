@@ -39,7 +39,7 @@ Route::get('/contact', 'FrontController@contact');
 Route::group(['middleware' => ['web']], function ($id) {
 
     	Route::get('/evenement', 'FrontController@evenement');
-	Route::any('/superUser', 'SuperUserController@login');
+	Route::any('/admin', 'SuperUserController@login');
 	Route::any('/superUser/check', 'SuperUserController@check');
 	Route::any('/my_event/check', 'AdminController@check');
     

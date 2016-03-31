@@ -18,7 +18,7 @@
                 </div>
 
                 <section class="popin popin-anthurium white-popup-block mfp-hide wrapper-popin info-formule" id="anthurium">
-                    <div class="border-formule"></div>
+                    <div class="border-formule-anthurium"></div>
                     <span class="close popup-modal-dismiss"></span>
                     <h2 class="title center"><span class="edwardianScriptITC formule under">Formule</span> <span class="didotLTStd-Bold anthurium under">Anthurium</span></h2>
                     <h4 class="sous-titre-pop center didotLTStd-Bold">Nos Forfaits de consulting / conseil</h4>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <section class="popin popin-alpinia white-popup-block mfp-hide wrapper-popin info-formule" id="alpinia">
-                    <div class="border-formule"></div>
+                    <div class="border-formule-alpinia"></div>
                     <span class="close popup-modal-dismiss"></span>
                     <h2 class="title center"><span class="edwardianScriptITC formule under">Formule</span> <span class="didotLTStd-Bold alpnia under">Alpinia</span></h2>
                     <h4 class="sous-titre-pop center didotLTStd-Bold">Nos Forfaits de consulting / conseil</h4>
@@ -125,14 +125,14 @@
                 <div class="col-md-6">
                     <div class="pack formule-03">
                         <div>
-                            <h3><span class="formule edwardianScriptITC">Formule</span> <span class="name didotLTStd-Bold">Hibiscus</span></h3>
+                            <h3><span class="formule edwardianScriptITC">Formule</span> <span class="name didotLTStd-Bold">HIBISCUS</span></h3>
                             <p class="futuraStd-Light">Conciergerie privée pour vous et vos convives</p>
                             <a href="#hibiscus" class="popup-modal"><button class="didotLTStd-Light">Découvrir</button></a>
                         </div>
                     </div>
                 </div>
                 <section class="popin popin-hibiscus white-popup-block mfp-hide wrapper-popin info-formule" id="hibiscus">
-                    <div class="border-formule"></div>
+                    <div class="border-formule-hibiscus"></div>
                     <span class="close popup-modal-dismiss"></span>
                     <h2 class="title center"><span class="edwardianScriptITC formule under">Formule</span> <span class="didotLTStd-Bold hibiscus under">Hibiscus</span></h2>
                     <h4 class="sous-titre-pop center didotLTStd-Bold">Nos Forfaits de consulting / conseil</h4>
@@ -190,7 +190,7 @@
                 </div>
             </section>
             <section class="popin popin-allamanda white-popup-block mfp-hide wrapper-popin info-formule" id="allamanda">
-                <div class="border-formule"></div>
+                <div class="border-formule-allamanda"></div>
                 <span class="close popup-modal-dismiss"></span>
                 <h2 class="title center"><span class="edwardianScriptITC formule under">Formule</span> <span class="didotLTStd-Bold allamanda under">Allamanda</span></h2>
                 <h4 class="sous-titre-pop center didotLTStd-Bold">Nos Forfaits de consulting / conseil</h4>
@@ -256,7 +256,8 @@
                     <br/>
                     <p class="futuraStd-Light">
                         Nous vous établissons une facture totalisant votre demande initiale puis vous transmettons des factures à mesure de vos besoins supplémentaires
-                        <br/>
+                        <br/></p>
+                        <p class="formule-hidden-txt futuraStd-Light">
                         Nous concluons les contrats directement avec les fournisseurs
                         Nous procédons directement aux paiements des fournisseurs
                         Nous vous envoyons régulièrement des relevés de compte indiquant les sommes versés (virement, chèque ou espèces) et le montant restant à payer
@@ -268,7 +269,7 @@
                         Nos procédures éprouvées, nos échanges réguliers ainsi que notre expertise dans l’organisation d’évènements à distance pour les non résidents, vous assurera de profiter pleinement de votre événement et d’avoir un service de qualité à la hauteur de votre investissement.
                     </p>
                     <div class="clearfix"></div>
-                    {{--<button class="didotLTStd-Light">Lire la suite</button>--}}
+                    <button class="didotLTStd-Light formule-reveal-txt">Lire la suite</button>
                     <div class="clearfix"></div>
                     <span class="border"></span>
                 </div>

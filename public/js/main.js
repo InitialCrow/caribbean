@@ -8,6 +8,7 @@ $(document).ready(function(){
 	new Clipboard('.clip');
 	clipBoard();
 	saveFile('.file');
+    volet();
 
     $(function () {
         $('.popup-modal').magnificPopup({
@@ -106,15 +107,34 @@ function saveFile(idButton){
 
 function addAdmin(){
 
-	
 	$form = $('.add_admin_form');
 	$button = $('.add_admin_btn');
 	
 	$button.on('click',function(){
-		console.log('clikc')
-		
 		$form.removeClass('hidden_add_admin');
 	});
+}
+
+function volet(){
+    $('.info-guadeloupe').hide();
+    $('.savoir-plus').show();
+
+    $('.dec-guadeloupe').on('click', function(){
+        $('.info-guadeloupe').addClass('element').toggle();
+        $('.test').addClass('element-reverse').toggle();
+    });
+
+    $('.text-plus').hide();
+    $('.formule-hidden-txt').hide();
+
+    $('.reveal-txt').on('click', function(){
+        $('.hidden-txt').toggle();
+    });
+
+    $('.formule-reveal-txt').on('click', function(){
+        $('.formule-hidden-txt').toggle();
+        console.log('click')
+    });
 }
 
 

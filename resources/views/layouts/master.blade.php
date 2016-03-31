@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/normalize.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/font-awesome.min.css')}}">
 </head>
 
 <body>
@@ -24,14 +25,23 @@
     @yield('content')
 </section>
 
-{{--<footer id="footer">--}}
-    {{--<p>Copyright © ...</p>--}}
-    {{--<ul>--}}
-        {{--<li>Facebook</li>--}}
-        {{--<li>Twitter</li>--}}
-        {{--<li>Instagram</li>--}}
-    {{--</ul>--}}
-{{--</footer>--}}
+<div class="clearfix"></div>
+<footer id="footer">
+    <section class="wrapper">
+        <div class="left">
+            <p class="futuraStd-Light">caribbean planner - 2016</p>
+        </div>
+        <div class="right">
+            <p class="didotLTStd-Bold">Nous suivre</p>
+            <ul>
+                <li class="facebook"><a href=""><i class="fa fa-facebook"></i></a></li>
+                <li class="google"><a href=""><i class="fa fa-google-plus"></i></a></li>
+                <li class="instagram"><a href=""><i class="fa fa-instagram"></i></a></li>
+                <li class="pinterest"><a href=""><i class="fa fa-pinterest-p"></i></a></li>
+            </ul>
+        </div>
+    </section>
+</footer>
 
 <script src="{{url('js/lib/jquery.min.js')}}"></script>
 <script src="{{url('js/lib/clipboard.min.js')}}"></script>

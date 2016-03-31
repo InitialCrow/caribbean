@@ -13,10 +13,8 @@
 
                 Notre objectif est de créer des souvenirs indélébiles pour toutes les personnes voyageant
                 pour l’occasion mais surtout pour le couple qui s’unira sur une île paradisiaque.
-                <button class="didotLTStd-Light">Lire la suite</button>
             </p>
         </section>
-
         <section class="col-md-12 equipe">
             <p class="title center"><span class="didotLTStd-Bold equipe under">L'Equipe</span> <span class="didotLTStd-Bold pour-vous under">pour vous</span> <span class="edwardianScriptITC accompagner under">accompagner</span></p>
             <section class="col-md-12 portrait-christina"></section>
@@ -44,9 +42,11 @@
                     <h3 class="didotLTStd-Bold center">Pascale</h3>
                     <h4 class="didotLTStd-Bold center">Chef de projet décoration</h4>
                 </div>
+            </section>
         </section>
-        @stop
     </section>
     </section>
+
+@stop
 @section('content')
 @stop

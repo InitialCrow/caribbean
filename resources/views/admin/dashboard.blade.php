@@ -35,7 +35,7 @@
 
                     <li>{{$todo['todo']}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$todo['id']}}" data-type="todoList" name="delete">
                 @empty
-                    <p class="futuraStd-Light">Il n'y a pas de déroulement planifié</p>
+                    <p class="futuraStd-Light center">Il n'y a pas de déroulement planifié</p>
                 @endforelse
                 <input class ="todo under" type="text" name="todolist[1]list" placeholder="liste des chose à faire">
             </ul>
@@ -49,49 +49,45 @@
 				@empty
 				<p class="futuraStd-Light">Il n'y a pas encore d'images dans la gallerie!</p>
 				@endforelse
-				<input type="file" name="gallery_image" size="40">
+				<input type="file" name="gallery_image[]" size="40"  multiple>
 			</ul>
 		</section>
-        <section class="guest col-md-12">
-            <h2 class="title"><span class="votre edwardianScriptITC under">Liste</span> <span class="presentation didotLTStd-Bold under capitelize">D'invitation</span></h2>
-            <form action="{{url('my_event/'.$admin->url.'/send')}}" method ="post">
-                <label for="email">email:</label>
-                <input type="email" name="email">
-                <input type="submit">
-                {{@csrf_field()}}
-            </form>
-        </section>
+
 		<section class="presence col-md-12">
             <h2 class="title"><span class="votre edwardianScriptITC under">Liste</span> <span class="presentation didotLTStd-Bold under capitelize">Des Invités</span></h2>
-            <ul>
-				<h3 class="didotLTStd-Headline"> Présent :</h3>
-				@forelse($guests as $guest)
-					@if($guest->status === 1)
-					<li>{{$guest->name}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$guest->id}}" data-type="guest" name="delete">
-					@endif
-				@empty
-				<p class="futuraStd-Light">il n'y a encore personne de present au mariage</p>
-				@endforelse
+            <section class="col-md-6">
+                <ul>
+                    <h3 class="didotLTStd-Headline"> Présent :</h3>
+                    @forelse($guests as $guest)
+                        @if($guest->status === 1)
+                        <li>{{$guest->name}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$guest->id}}" data-type="guest" name="delete">
+                        @endif
+                    @empty
+                    <p class="futuraStd-Light">il n'y a encore personne de presents au mariage</p>
+                    @endforelse
+                </ul>
+            </section>
+            <section class="col-md-6">
+                <ul>
+                    <h3 class="didotLTStd-Headline"> Absent :</h3>
+                    @forelse($guests as $guest)
+                        @if($guest->status === 0)
+                            <li>{{$guest->name}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$guest->id}}" data-type="guest" name="delete">
+                        @endif
+                    @empty
+                        <p class="futuraStd-Light">il n'y a personne qui manquera votre mariage</p>
+                    @endforelse
+                </ul>
+            </section>
 
-			</ul>
-			<ul>
-				<h3 class="didotLTStd-Headline"> Pas Présent :</h3>
-				@forelse($guests as $guest)
-					@if($guest->status === 0)
-					<li>{{$guest->name}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$guest->id}}" data-type="guest" name="delete">
-					@endif
-				@empty
-				<p class="futuraStd-Light">il n'y a personne qui manquera votre mariage</p>
-				@endforelse
-			</ul>
 		</section>
 		<section class="actu  col-md-12">
             <h2 class="title"><span class="votre edwardianScriptITC under">Vos</span> <span class="presentation didotLTStd-Bold under capitelize">Actualités</span></h2>
         @if($contentBlogs !== null)
 				@forelse($contentBlogs as $index => $contentBlog)
-				<div class="col-md-12 ">
-					<h3>{{$contentBlogs[$index]->title_html}}</h3><input class="delete btn btn-danger " type="submit" value="x" data="{{$contentBlog->id}}" data-type="contentBlog" name="delete">
-					<p>{{$contentBlogs[$index]->text}}</p>
+				<div class="col-md-12 one-actu">
+					<h3 class="didotLTStd-Headline cap">{{$contentBlogs[$index]->title_html}}</h3><input class="delete btn btn-danger " type="submit" value="x" data="{{$contentBlog->id}}" data-type="contentBlog" name="delete">
+					<p class="futuraStd-Light">{{$contentBlogs[$index]->text}}</p>
 					@if ($contentBlogs[$index]->image_uri !== null)
 					<p>
 						<img class="img-responsive img-rounded" src="{{url('uploads/admins_'.$admin->name.'/content_blog_img', $contentBlogs[$index]->image_uri)}}">
@@ -104,24 +100,18 @@
 						
 							@if($comment->content_blog_id === $contentBlogs[$index]->id)
 						<ul>
-							
-							
 							<li>
-								<h3>{{$comment->name}}:</h3><input class="delete btn btn-danger " type="submit" value="x" data="{{$comment->id}}" data-type="comment" name="delete">
-								<p>{{$comment->text}}</p>
+								<h3 class="didotLTStd-Headline">{{$comment->name}}:</h3><input class="delete btn btn-danger " type="submit" value="x" data="{{$comment->id}}" data-type="comment" name="delete">
+								<p class="futuraStd-Light">{{$comment->text}}</p>
 								@if (!empty($comment->image_uri))
 								<p>
 									<img src="{{url('uploads/admins_'.$admin->name.'/comments', $comment->image_uri)}}">
 								</p>
 								@endif
-							
 							</li>
-						
 						</ul>
 							@endif
 						@endforeach
-					
-						
 					@endif
 					</section>		
 				</div>
@@ -131,19 +121,28 @@
 				@endforelse
 			@endif	
 		</section>
-		{{@csrf_field()}}
+
 	
 		<section class="addActu  col-md-12">
-			<h2 class="didotLTStd-Headline">Ajouter une Actu : </h2>
+			<h2 class="didotLTStd-Headline">Ajouter une Actualité : </h2>
 				<input type="text" name="titre_actu" placeholder="titre de votre actualité" class="form-control">
 				<br/>
 				<textarea name="text_actu" id="text_actu" cols="30" class="form-control" rows="10" placeholder="Ecriver vos actualités..."></textarea>
 				<input type="file" name="actu_image" size="40">
 				<button type="submit" class="btn btn-lg btn-primary">Envoyer</button>
 
+
 		</section>
+        {{@csrf_field()}}
 	</form>
+    <section class="guest col-md-12">
+        <h2 class="title"><span class="votre edwardianScriptITC under">Liste</span> <span class="presentation didotLTStd-Bold under capitelize">D'invitation</span></h2>
+        <form action="{{url('my_event/'.$admin->url.'/send')}}" method ="post">
+            <label for="email" class="didotLTStd-Bold">Email:</label>
+            <input type="email" name="email">
+            <input type="submit" class="btn email-btn">
+            {{@csrf_field()}}
+        </form>
+    </section>
 </div>
-@stop
-@section('content')
 @stop

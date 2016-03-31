@@ -81,6 +81,8 @@ body{
     font-size: 10px;
 }
 
+.clearfix{clear:both;}
+
 .wrapper{
     width: 100%;
     max-width: 1200px;
@@ -151,6 +153,8 @@ header .navbar{min-height: 0;}
     color: #fff;
 }
 
+#index a button:hover, #index a:hover, #index a {color:#fff!important; text-decoration: none;}
+
 #main-content button:after {
     content: '';
     border: 1px solid #c51260;
@@ -186,8 +190,12 @@ main section{
     margin-top: 20px;
 }
 
-#index section.index-plus div{padding-bottom: 65px;}
-#index section.prestation div{padding-bottom: 100px;}
+#index section.index-plus div{padding-bottom: 90px; position: relative;}
+#index section.index-plus div.info-guadeloupe{width:93%; position: absolute; top:0; min-height: 400px; background-color: rgba(255,255,255,1);}
+#index section.index-plus div.info-guadeloupe p {width: 70%; text-align: center; margin: 0 auto;}
+#index section.index-plus div.info-guadeloupe span.close {    padding-top: 0; margin: 15px; color: #c51260; opacity: 1;}
+#index section.prestation div{padding-bottom: 125px;}
+/*#index section.home-mariage .hidden-txt{display: none;}*/
 section.index-plus{
     background-image: url('../images/index-plus.jpg');
     background-repeat: no-repeat;
@@ -201,6 +209,56 @@ section.index-plus span.index-en, section.prestation span.index-en{
 font-size: 8.286em;
 color: #c51260;
 line-height: 70px;
+}
+
+/* ANIATION */
+
+.element {
+    -webkit-animation: KEYFRAME-NAME 3s;
+    -moz-animation:    KEYFRAME-NAME 3s;
+    -o-animation:      KEYFRAME-NAME 3s;
+    animation:         KEYFRAME-NAME 3s;
+}
+
+@-webkit-keyframes KEYFRAME-NAME {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes KEYFRAME-NAME {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-o-keyframes KEYFRAME-NAME {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes KEYFRAME-NAME {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.element-reverse {
+    -webkit-animation: opac 2s;
+    -moz-animation:    opac 2s;
+    -o-animation:      opac 2s;
+    animation:         opac 2s;
+}
+
+@-webkit-keyframes opac {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes opac {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-o-keyframes opac {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes opac {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 section.index-plus p, section.prestation p{
@@ -240,7 +298,7 @@ section.date span.depuis{font-size: 2.929em; line-height: 25px;}
 section.date span.date-2009{font-size:1.643em; margin-left: 60px;}
 section.date span.event{font-size:1.429em; text-transform: uppercase;}
 section.date span.nb-77{font-size:19.500em; line-height: 200px; margin-left: -80px;}
-section.date span a{font-size: 1.429em; color:#fff;margin-top: 35px;display:block; padding-left: 40px;}
+section.date span a{font-size: 1.9em; color:#fff;margin-top: 35px;display:block; padding-left: 40px;}
 
 section.prestation{
     background-image: url('../images/index-prestation.jpg');
@@ -330,8 +388,8 @@ section.equipe{background-color: #f6f6f6; min-height: 420px;}
 
 section.realisation{padding: 0; margin-top: 10px;}
 section.realisation div.slide-01{background: url('../images/index-slider-01.jpg'); background-size:cover;}
-section.realisation div.slide-02{background: url('../images/index-slider-01.jpg'); background-size:cover;}
-section.realisation div.slide-03{background: url('../images/index-slider-01.jpg'); background-size:cover;}
+section.realisation div.slide-02{background: url('../images/index-slider-02.jpg'); background-size:cover;}
+section.realisation div.slide-03{background: url('../images/index-slider-03.jpg'); background-size:cover;}
 section.realisation div.btn-slide{background-color: transparent; display: none;}
 section.realisation .swiper-slide{min-height: 459px;}
 #index section.realisation div{min-height: 420px;}
@@ -341,7 +399,7 @@ section.realisation p.infos{font-size: 1.625em; color:#231f20;}
 section.realisation p span.tarif{font-size: 1.500em; color:#c51260;}
 section.realisation section.infos-maries{padding-top: 150px;}
 
-section.creation{background-color: #c51e62; min-height: 459px;}
+section.creation{background-color: #c51e62; min-height: 450px;}
 section.creation h2{color:#fff; margin-top: 130px;}
 section.creation span.quelques{font-size: 2.113em; text-transform: uppercase;}
 section.creation span.unes{font-size: 2.875em;line-height: 50px; margin-right: 180px;}
@@ -377,13 +435,15 @@ section.agence section.portrait-christina{background: url('../images/agence-chri
 
 #agence section.presentation-christina p{font-size: 1.225em; color:#231f20; line-height: 30px;}
         section.presentation-christina{min-height: 350px; background-color: #f6f6f6; margin-top: 0;}
-#agence section.equipe-laure{background-color: #c51260; min-height: 283px;}
+/*#agence section.equipe-laure{background-color: #c51260; min-height: 283px;}*/
 #agence section.equipe-laure div, #agence section.equipe-pascal div{min-height: 240px;}
 #agence section.equipe-pascal{background: url('../images/agence-pascal.jpg') no-repeat; min-height: 283px;}
+#agence section.equipe-laure{background: url('../images/agence-laure.jpg') no-repeat; min-height: 283px;}
 #agence section.equipe-laure h3, #agence section.equipe-pascal h3{font-size: 3.063em; color:#c51260; padding-top: 50px;}
 #agence section.equipe-laure h4, #agence section.equipe-pascal h4{font-size: 1.563em; color:#fff;}
 
 #agence section.equipe-pascal h4{color: #c51260;}
+#agence section.equipe-laure h4{color: #c51260;}
 
     /* ----Qui sommes nous---- */
 
@@ -409,7 +469,7 @@ section.agence section.portrait-christina{background: url('../images/agence-chri
 #formule section.engagement span.engagement, #formule section.fonctionnement span.fonctionnement{font-size: 2.438em; line-height: 20px;}
 #formule section.engagement h3{background: url("../images/tache.png") no-repeat 0 100%; margin-bottom: 50px;}
 #formule section.fonctionnement h3{background: url("../images/formule-tache-fonctionnement.png") no-repeat 100% 100%; margin-bottom: 50px;}
-#formule section.engagement p, #formule section.fonctionnement p{text-align:justify;margin: 0; line-height: 30px; font-size: 1.313em; width: 75%;}
+#formule section.engagement p, #formule section.fonctionnement p{margin: 0; line-height: 30px; font-size: 1.313em; width: 75%;}
 #formule section.fonctionnement div.txt-right p{display:inline-block;}
 
 
@@ -419,7 +479,14 @@ section.agence section.portrait-christina{background: url('../images/agence-chri
 #formule section.fonctionnement .pink{color:#c51260;}
 #formule section.fonctionnement .border, #formule section.engagement .border{border: 1px solid #c51260; width:30%; display:inline-block;}
 
-section.popin .border-formule{height: 15px;background-color: #c61e5c;}
+section.popin .border-formule-anthurium{height: 15px;background-color: #c51260;}
+section.popin .border-formule-alpinia{height: 15px;background-color: #d91c5c;}
+section.popin .border-formule-hibiscus{height: 15px;background-color: #bb2d76;}
+section.popin .border-formule-allamanda{height: 15px;background-color: #da1878;}
+
+#main-content #formule section.popin .pack a:hover{color: #c51260;}
+#main-content #formule section.popin .pack a:hover{opacity: 0.8;}
+
 section.popin {min-height: 400px;}
 section.popin span.close {background: url('../images/formule-close.png') no-repeat 100% 100%; height: 30px; width: 100%;}
 section.popinh2{background: url('../images/tache.png') no-repeat 50% 100%;}
@@ -448,9 +515,12 @@ section.info-formule{background-color: #fff; padding: 20px; min-height: 600px;}
 
 /* ======REALISATIONS======= */
 
-section.realisation .hover{visibility: hidden; position:absolute; z-index: 99;}
-section.realisation .hover:hover{position:absolute;min-height: 150px;}
+section.realisation .hover{visibility: hidden; position:absolute; z-index: 99; padding-top: 50px;}
+section.realisation .hover h3{font-size: 6.2em; text-align: center; padding-top: 20px; color:#c51260;}
+section.realisation div.hover{width: 75%; background-color: rgba(255,255,255,0.7); min-height: 238px; padding: 20px;}
+section.realisation .photo:hover .hover{position:absolute;min-height: 240px; visibility: visible;}
 section.realisation div.photo{margin: 25px 0;}
+section.realisation div.photo{margin: 0 auto;}
 
 /* ======LIVRE======= */
 
@@ -541,6 +611,28 @@ section.event{
     vertical-align: top;
 }
 
+section.activite{background-color: #eb1d5d; margin-top: 50px;}
+section.activite{color: #fff; padding: 50px;}
+section.activite h4{font-size: 2.225em;}
+section.delay input{margin: 0 auto; border: 1px solid #c51260; padding:5px;}
+
+.admin .one-actu{border-bottom: 1px solid #c51260;}
+.admin textarea{height:34px; background-color: #eac1d5; border:none; border-radius:0; margin: 15px 0;}
+.actu form input{display: inline-block; margin-bottom: 15px;}
+.actu input[type=submit]{background-color:#c51260; color:#fff; border:none; border-radius:0;}
+.actu input{border: 1px solid #c51260; padding: 5px;}
+.admin input{margin: 15px 0;}
+.actu input[type=submit]{border-radius: 60px; padding: 5px;}
+
+section.planning input[type=text]{border: 1px solid #c51260; padding: 5px; margin: 5px auto;}
+section.planning .addButton{display: block; margin: 0 auto; background-color: #c51260; color: #fff; border-radius: 60px; border:none;}
+input.delete .btn-danger{border-radius: 60px;}
+section.guest form{text-align: center;}
+section.guest .email-btn{background-color: #c51260; color:#fff;}
+section.guest input{border:1px solid #c51260; padding: 5px;}
+section.guest label{font-size: 1.5em;}
+.actu input[type=submit]{float:right;}
+
 /* ======CONTACT======= */
 
 section.contact h1{line-height: 65px; width:50%; margin: 0 auto; font-size: 5.8em; background: url('../images/livre-tache.png') no-repeat 50% 100%;}
@@ -554,3 +646,15 @@ section.contact div.connect input, section.contact div.connect textarea, section
 
 
 /* ======FOOTER======= */
+
+#footer {width:100%; background-color: #c51260; margin: 0; height:80px; margin-top: 20px;}
+#footer .left{float: left;}
+#footer .right{float: right;}
+#footer .right p{display:inline-block;}
+#footer {color: #fff;}
+#footer p{text-transform: uppercase; font-size: 1.5em; margin-top: 40px; line-height: 0;}
+
+#footer ul{text-align: right; display:inline-block;}
+#footer ul li{display: inline-block;}
+
+#footer ul li a i{color:#fff; font-size: 2em; padding: 0 10px;}

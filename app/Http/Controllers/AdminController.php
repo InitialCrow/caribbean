@@ -15,6 +15,7 @@ use App\TodoList;
 use App\Presentation;
 use App\Guest;
 use App\Comment;
+
 class AdminController extends Controller
 {
 
@@ -108,16 +109,27 @@ class AdminController extends Controller
 				$imgContentBlog = null;
 			}
 
-			if(!empty($credential['gallery_image'])){
+			if(!empty($credential['gallery_image'] )){
+
 				$imgGallery = $credential['gallery_image'];
 
-				$imgGallery->move('uploads/admins_'.$admin->name.'/gallery/',$imgGallery->getClientOriginalName());
+				
+				foreach($imgGallery as $img){
+                    if(!empty($img)){
+                        $img->move('uploads/admins_'.$admin->name.'/gallery/',$img->getClientOriginalName());
+                        $gallery = new Gallery([
+                            'image_uri'=> $img->getClientOriginalName(),
+                            'admin_id'=> $admin->id
+                        ]);
+                        $gallery->save();
+                    }
+                    else{
+                        break;
+                    }
 
-				$gallery = new Gallery([
-					'image_uri'=> $imgGallery->getClientOriginalName(),
-					'admin_id'=> $admin->id
-				]);
-				$gallery->save();
+				}
+				
+				
 			}
 			foreach ($credential['todolist'] as $todo) {
 				if(!empty($todo)){

@@ -69,14 +69,17 @@ class SuperUserController extends Controller
 			Storage::disk('uploads')->makeDirectory('admins_'.$admin->name.'/comments');
 			Storage::disk('uploads')->makeDirectory('admins_'.$admin->name.'/content_blog_img');
 			Storage::disk('uploads')->makeDirectory('admins_'.$admin->name.'/gallery');
-			if(!empty($credential['file'])){
-				$file = $credential['file'];
+			if(!empty($credential['files'])){
+				$files = $credential['files'];
 				Storage::disk('uploads')->makeDirectory('admins_'.$admin->name.'/files');
-				$file->move('uploads/admins_'.$admin->name.'/files/',$file->getClientOriginalName());
+				foreach ($files as $file) {
+					$file->move('uploads/admins_'.$admin->name.'/files/',$file->getClientOriginalName());
+				}
+				
 				
 			}
 			
-			return redirect('/superUser/dashboard');	
+			return redirect('/superUser/dashboard');
 	    	}
     }
     public function get_removeAdmin($id){
@@ -92,14 +95,17 @@ class SuperUserController extends Controller
     }
     	
     public function post_saveFile(Request $request, $id){
-		$credential = $request->only('file');
+		$credential = $request->only('files');
 		
 		$admin = Admin::find($id);
 		$name = $admin->name;
-		if(!empty($credential['file'])&& !empty($name) ){
-			$file = $credential['file'];
+		if(!empty($credential['files'])&& !empty($name) ){
+			$files = $credential['files'];
 			Storage::disk('uploads')->makeDirectory('admins_'.$admin->name.'/files');
-			$file->move('uploads/admins_'.$admin->name.'/files/',$file->getClientOriginalName());
+			foreach ($files as $file) {
+				$file->move('uploads/admins_'.$admin->name.'/files/',$file->getClientOriginalName());
+			}
+			
 		}
 		return back()->with( ['message' => trans('app.success')] );
     }
