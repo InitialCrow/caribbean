@@ -8,19 +8,20 @@ $(document).ready(function(){
 	new Clipboard('.clip');
 	clipBoard();
 	saveFile('.file');
-    volet();
+    	volet();
 
-    $(function () {
-        $('.popup-modal').magnificPopup({
-            type: 'inline',
-            focus: '#anthurium',
-            modal: true
-        });
-        $(document).on('click', '.popup-modal-dismiss', function (e) {
-            e.preventDefault();
-            $.magnificPopup.close();
-        });
-    });
+	$(function () {
+		$('.popup-modal').magnificPopup({
+			type: 'inline',
+			focus: '#anthurium',
+			modal: true
+		});
+		$(document).on('click', '.popup-modal-dismiss', function (e) {
+			e.preventDefault();
+			$.magnificPopup.close();
+		});
+	});
+	switchNumb();
 
 });
 
@@ -135,6 +136,52 @@ function volet(){
         $('.formule-hidden-txt').toggle();
         console.log('click')
     });
+}
+
+function switchNumb(){
+	var $switchNumb = $('.switchNumb');
+	var $date = $('.date .center');
+	var $date2009 = $('.date-2009');
+	var $depuis = $('.depuis');
+	var $nb = $('.nb-77');
+	var $event = $('.event');
+	var count = 0;
+	
+	$switchNumb.on('click',function(evt){
+		evt.preventDefault();
+		count+=1;
+
+		$date.css({
+			'opacity':'0',
+			'transition':'all,1s',
+
+		});
+
+		setTimeout(function(){
+			if(count === 0){
+				$depuis.html("Depuis");
+				$date2009.css('visibility','visible');
+				$nb.html('77');
+				$event.html("événement organisés");
+			}
+			if (count === 1){
+				$date2009.css('visibility','hidden');
+				$depuis.html("Cérémonie jusqu'a");
+				$nb.html('60');
+				$event.html("personnes");
+			}
+			if(count === 2 ){
+				$date2009.css('visibility','hidden');
+				$depuis.html("Il nous on fait confiance");
+				$nb.html('74');
+				$event.html("couples de différentes nationalités");
+				count=-1;
+			}
+			$date.css('opacity','1');
+		},1000);
+		
+
+	});
 }
 
 

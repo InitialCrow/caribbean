@@ -32,7 +32,7 @@
             </section>
             <section class="col-md-4 date">
                 <p class="center"><span class="edwardianScriptITC depuis">Depuis</span><span class="edwardianScriptITC date-2009">2009</span><span class="edwardianScriptITC nb-77">77</span><span class="didotLTStd-Bold event">évènements organisés</span></p>
-                <span><a href="" class="edwardianScriptITC">Découvrir l'agence</a></span>
+                <span><a href="#" class="edwardianScriptITC switchNumb">Quelques chiffres</a></span>
             </section>
             <section class="col-md-4 prestation">
                 <div><p><span class="edwardianScriptITC index-en">Nos</span><span class="didotLTStd-Bold savoir-plus">Prestations</span></p>
