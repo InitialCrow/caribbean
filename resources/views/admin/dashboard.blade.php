@@ -59,7 +59,7 @@
                 <ul>
                     <h3 class="didotLTStd-Headline"> Présent :</h3>
                     @forelse($guests as $guest)
-                        @if($guest->status === 1)
+                        @if($guest->status == 1)
                         <li>{{$guest->name}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$guest->id}}" data-type="guest" name="delete">
                         @endif
                     @empty
@@ -71,7 +71,7 @@
                 <ul>
                     <h3 class="didotLTStd-Headline"> Absent :</h3>
                     @forelse($guests as $guest)
-                        @if($guest->status === 0)
+                        @if($guest->status == 0)
                             <li>{{$guest->name}}</li><input class="delete btn btn-danger" type="submit" value="x" data="{{$guest->id}}" data-type="guest" name="delete">
                         @endif
                     @empty
@@ -98,7 +98,7 @@
 
 						@foreach($comments as $comment)
 						
-							@if($comment->content_blog_id === $contentBlogs[$index]->id)
+							@if($comment->content_blog_id == $contentBlogs[$index]->id)
 						<ul>
 							<li>
 								<h3 class="didotLTStd-Headline">{{$comment->name}}:</h3><input class="delete btn btn-danger " type="submit" value="x" data="{{$comment->id}}" data-type="comment" name="delete">

@@ -261,27 +261,39 @@ class AdminController extends Controller
 		if(session()->get('admin')->remember_token ===  $admin->remember_token ){
 			if ( $type === "todoList"){
 				$todoList = TodoList::Find($id);
-				$todoList->delete();
+				if(!empty($todoList)){
+					$todoList->delete();
+				}
 			
 			}
 			if ( $type === "gallery"){
 				$gallery = Gallery::Find($id);
-				$gallery->delete();
+				if(!empty($gallery)){
+					$gallery->delete();
+				}
+
 			}
 			if ( $type === "contentBlog"){
 				$contentBlog = ContentBlog::Find($id);
-				$contentBlog->delete();
+				if(!empty($contentBlog)){
+					$contentBlog->delete();
+				}
+				
+
 			}
 			if($type ==="comment"){
 				$comment = Comment::Find($id);
-				$comment->delete();
+				if(!empty($comment)){
+					$comment->delete();
+				}
 			}
 			if($type ==="guest"){
 				
 				$guest = Guest::Find($id);
-				$guest->delete();
+				if(!empty($guest)){
+					$guest->delete();
+				}
 			}
-			
 			 return redirect()->intended('my_event/'.$admin->url.'/edit');
 		}
 		else{
